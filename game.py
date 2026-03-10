@@ -12,6 +12,8 @@ pass
 
 def charactermake(): #Function for the beginning character creation part of the game
     global name #sets many variables to be global, rather than locked to this function
+    global health
+    global money
     global strength
     global defense
     global wisdom
@@ -33,8 +35,12 @@ def charactermake(): #Function for the beginning character creation part of the 
     defense = random.randint(1,20)
     wisdom = random.randint(1,20)
     speed = random.randint(1,20)
+    health = random.randint(50,145)
+    money = random.randint(0,300)
     print("")
     print("---===STATS ROLLED===---")
+    print("HP:", health)
+    print("STARTING CASH:", money)
     print("STR:", strength)
     print("DEF:", defense)
     print("WIS:", wisdom)
@@ -44,6 +50,22 @@ def charactermake(): #Function for the beginning character creation part of the 
     answer = str(input("(Press enter to continue)"))
     print("")
     print("Interesting... Most interesting...")
+    print("It seems the stars above have a very specific path planned for you.")
+    print("Until you reach the end of the path, try not to die")
+    print("")
+    print("*as the voice says this, you feel a light shining in front of you")
+    answer = str(input("(Press enter to step towards this light)"))
+    print("")
+    print("*The light grows brighter as you step toward it. Every inch enveloping your body further in radiance.")
+    print("*As you take one final step, you feel your vision go dark as you protect yourself from the beams of light")
+    print("")
+    answer = str(input("(Press enter to continue)"))
+    chapter1p1()
+    pass
+
+def chapter1p1(): # Function for all logic of the first part of the first chapter of the game
+    pass
+
 
 
 
