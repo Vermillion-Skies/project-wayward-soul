@@ -64,11 +64,24 @@ def charactermake(): #Function for the beginning character creation part of the 
     pass
 
 def chapter1p1(): # Function for all logic of the first part of the first chapter of the game
-    pass
-
-
-
-
+    global name #sets many variables to be global, rather than locked to this function
+    global health
+    global money
+    global strength
+    global defense
+    global wisdom
+    global speed
+    screenclear()
+    print("*When you finally come to, you slowly open your eyes")
+    print("*You did not have eyes before, you don't believe you ever have")
+    print("*Your eyes slowly adjust to the light, and you become aware of your surroundings")
+    print("*You seem to be under a tree, leaning against it as your legs are crossed, and gently placed on top of the ground beneath you")
+    print("*You aren't quite used to your body yet, and you find getting up to be a challenge for the moment. However, you managed to understand speech within this vessel quite fast")
+    print("*You open your mouth to speak, and a voice escapes that you haven't heard before.")
+    print("*It's not unpleasant, although there isn't anyone else around to confirm this.")
+    print("*You speak softly to yourself, growing more used to this voice")
+    print(name + ": ...suppose I could look around")
+    
 
 screenclear() #the initial game logic that runs at the start
 print("Welcome, adventurer, to the game")
