@@ -76,7 +76,7 @@ while activeinput == 1: #Loop to check if the user wishes to load a file
 if chapter == 0:
     print("Proceeding with a new game")
     answer = str(input("Press enter to continue"))
-    subprocess.run(["python", "GameFiles/Game.py"], check=True)
+    subprocess.run(["python", "GameFiles/Prologue.py"], check=True)
 if chapter == 1:
     print("Continuing from Chapter 1")
     answer = str(input("Press enter to continue"))

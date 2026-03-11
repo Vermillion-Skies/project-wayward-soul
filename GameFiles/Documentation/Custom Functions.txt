@@ -1,0 +1,11 @@
+----------------------------
+CUSTOM FUNCTIONS DOCUMENTATION
+ONLY functions included in Scripts.py
+----------------------------
+----------------------------
+screenclear()
+Runs a short loop of empty lines to clear a terminal screen for more content. When called, it sets the "rep" variable to integer 0. While the "rep" variable is less than 100, it will print an empty line and increment this variable by 1. Once the loop is done, it returns to the process that called it.
+----------------------------
+----------------------------
+savegame(x)
+Function used to save the contents of a provided list (x, which henceforth will be simply referred to as "list" or "the list") to a .txt file (save.txt, which henceforth will be simply referred to as "save" or "the file"). When called, it sets the "activeinput" variable to 1, as to serve as a placeholder for the loop while it processes data. It first checks if the "Saves/" folder exists. If this folder doesn't exist, it makes it. Then it will attempt to write to the

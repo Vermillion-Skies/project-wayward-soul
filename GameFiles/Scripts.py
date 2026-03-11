@@ -1,10 +1,14 @@
 import os
-def screenclear(): #function to blank out the terminal window for the game
+def screenclear(): #function to blank out the terminal window for the game 
     rep = int(0)
-    while rep < 50:
-        print("")
-        rep = rep + 1
+    try:
+        while rep < 100:
+            print("") #Prints a blank line
+            rep = rep + 1 #Increments rep by 1
+            pass
         pass
+    except Exception as e: #Exception catcher
+        errorhandle("SC0") #Calls in-house error handler (Should never happen here?)
     pass
 def savegame(x): #Function to save a provided list to a file
     activeinput = 1

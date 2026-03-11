@@ -2,6 +2,13 @@
 ERROR CODE DOCUMENTATION
 ----------------------------
 ----------------------------
+"SC" Errors
+----------------------------
+Functionally, these should literally never occur.
+----------------------------
+SC0: SC0 is called when screenclear() fails. I have no idea what COULD cause this, but I threw a handler in there just in case. I have never come across this error, and hopefully neither will you.
+----------------------------
+----------------------------
 "SS" errors
 ----------------------------
 Error codes that start with SS indicate an issue saving progress to a file.
