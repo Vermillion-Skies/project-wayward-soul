@@ -47,4 +47,8 @@ def loadgame(): #Function to load a file and return a list
 def errorhandle(x): #In-house error handler
     screenclear()
     print("AN ERROR HAS OCCURED AND THE GAME HAS CRASHED")
-    if x == "SS0":
+    print("Error code: " + x)
+    print("Please consult the error code documentation on github for more information")
+    print("")
+    answer = str(input("Press enter to close the program."))
+    quit()
