@@ -1,24 +1,17 @@
 import random #Imports the random library for use in stat calculations and rolls
+import Scripts
 
-def screenclear(): #function to blank out the terminal window for the game
-    rep = int(0)
-    while rep < 50:
-        print("")
-        rep = rep + 1
-        pass
-    pass
-pass
 
 
 def charactermake(): #Function for the beginning character creation part of the game
     global name #sets many variables to be global, rather than locked to this function
-    global health
+    global maxhealth
     global money
     global strength
     global defense
     global wisdom
     global speed
-    screenclear()
+    Scripts.screenclear()
     print("You are a wayward soul.")
     print("One without path, without purpose")
     print("A blank slate, both in past and in future")
@@ -35,11 +28,12 @@ def charactermake(): #Function for the beginning character creation part of the 
     defense = random.randint(1,20)
     wisdom = random.randint(1,20)
     speed = random.randint(1,20)
-    health = random.randint(50,145)
+    maxhealth = random.randint(50,145)
     money = random.randint(0,300)
+    health = maxhealth
     print("")
     print("---===STATS ROLLED===---")
-    print("HP:", health)
+    print("HP:", maxhealth)
     print("STARTING CASH:", money)
     print("STR:", strength)
     print("DEF:", defense)
@@ -60,18 +54,19 @@ def charactermake(): #Function for the beginning character creation part of the 
     print("*As you take one final step, you feel your vision go dark as you protect yourself from the beams of light")
     print("")
     answer = str(input("(Press enter to continue)"))
-    chapter1p1()
+    part1()
     pass
 
-def chapter1p1(): # Function for all logic of the first part of the first chapter of the game
+def part1(): # Function for all logic of the first part of the first chapter of the game
     global name #sets many variables to be global, rather than locked to this function
+    global maxhealth
     global health
     global money
     global strength
     global defense
     global wisdom
     global speed
-    screenclear()
+    Scripts.screenclear()
     print("*When you finally come to, you slowly open your eyes")
     print("*You did not have eyes before, you don't believe you ever have")
     print("*Your eyes slowly adjust to the light, and you become aware of your surroundings")
@@ -81,32 +76,56 @@ def chapter1p1(): # Function for all logic of the first part of the first chapte
     print("*It's not unpleasant, although there isn't anyone else around to confirm this.")
     print("*You speak softly to yourself, growing more used to this voice")
     print(name + ": ...suppose I could look around")
-    
+    print("")
+    activeinput = 1
+    while activeinput == 1:
+        print("1) Look left")
+        print("2) Look right")
+        print("3) Look to the sky")
+        print("4) Stop looking and stand up")
+        answer = str(input("Enter selection: "))
+        if answer == str("1"):
+            print("")
+            print("----------")
+            print("*As you look to your left, you see a large pond of sorts.")
+            print("*Many animals are drinking from the pond, and wild flora seem to be growing plentifully around it's crystal blue waters.")
+            print("*You can't quite explain it, but somehow this puts your mind at ease.")
+            print("----------")
+            print("")
+            print("*You turn your head back to the ground beneath you, contemplating your next choice.")
+            pass
+        elif answer == str("2"):
+            print("")
+            print("----------")
+            print("*To your right, you notice a sprawling forest of emerald green trees and bushes")
+            print("*You can't quite see into it, but based on the outside it must be full of life")
+            print("*As you admire it, you notice birds flying off from the trees, moving in a triangular formation")
+            print("*And yet... something about it makes you shudder. But why?")
+            print("----------")
+            print("")
+            print("*You turn your head back to the ground beneath you, contemplating your next choice.")
+            pass
+        elif answer == str("3"):
+            print("")
+            print("----------")
+            print("*You turn your head up to the sky, squinting your eyes as the sun shines upon you")
+            print("*As the clouds slowly move to envelop the sun's light, your vision becomes clearer")
+            print("*This moment of quiet contemplation clears your mind, you feel more wise!")
+            wisdom = wisdom + int(1)
+            print("(Wisdom increased to", wisdom, "!)")
+            print("----------")
+            print("")
+            print("*You turn your head back to the ground beneath you, contemplating your next choice.")
+            pass
+        elif answer == str("4"):
+            activeinput = 0
+            pass
+        else:
+            print("Invalid input, please try again")
+            pass
+        pass
+    print("")
 
-screenclear() #the initial game logic that runs at the start
-print("Welcome, adventurer, to the game")
-print("This game is a work of fiction. Any resemblences to any person, living or dead, is completely coincidental")
-print("Only by agreeing to these rules will you be allowed to continue into the game.")
-activeinput = 1
-while activeinput == 1:
-    answer = str(input("Do you agree to the rules? (y/n) "))
-    if answer == str("y"):
-        print("Good. Very, very good.")
-        activeinput = 0
-        pass
-    elif answer == str("n"):
-        print("I see. Such a pity.")
-        print("No point in letting this go on any further then.")
-        print("Hasta le vista.")
-        quit()
-    else:
-        print("Hm. Not sure you read the instructions correctly.")
-        print("Let's try again, shall we?")
-        pass
-    pass
-print("")
-print("The contract has been signed")
-print("As such, the journey may begin.")
-print("Best of luck, oh wandering soul")
-answer = str(input("(press enter to continue)"))
+
+Scripts.screenclear() #the initial game logic that runs at the start
 charactermake()

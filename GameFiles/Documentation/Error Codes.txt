@@ -1,0 +1,16 @@
+----------------------------
+ERROR CODE DOCUMENTATION
+----------------------------
+----------------------------
+"SS" errors
+----------------------------
+Error codes that start with SS indicate an issue saving progress to a file.
+----------------------------
+SS0: SS0 is called when there is an issue writing to a file for saving. Could be caused by a lack of write permissions, unlikely to be caused by file non-existence
+
+SS1: SS1 is called when the system is unable to create the "Saves" directory upon failure to detect it. COuld be caused by lack of write permissions, drive failure, or low storage space. More research is needed.
+----------------------------
+----------------------------
+"SL" errors
+----------------------------
+Error codes that start with SL indicate an issue loading information from a file
