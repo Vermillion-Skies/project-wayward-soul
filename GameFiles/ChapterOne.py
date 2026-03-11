@@ -157,12 +157,9 @@ def part2(): # Function for all logic of the first part of the first chapter of 
 
 Scripts.screenclear() #the initial game logic that runs at the start
 varlist = Scripts.loadgame()
-parttoplay = varlist[1]
-print(varlist)
-print(parttoplay)
-if parttoplay == str("No"):
+if varlist[0] == str("No"):
     part1()
 else:
-    if parttoplay == str("2"):
+    if varlist[1] == str("2"):
         varinit()
         part2()

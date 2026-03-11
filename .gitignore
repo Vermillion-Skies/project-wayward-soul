@@ -1,0 +1,4 @@
+# Ignore testing save files
+/GameFiles/Saves
+#Ignore the random ass cache files that keep showing up
+/GameFiles/__pycache__
