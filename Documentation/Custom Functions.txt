@@ -29,3 +29,7 @@ Function used to load a variable from the local cache. It loads the entire cache
 ----------------------------
 writecache(x, y)
 Function used to write values to the cache. Loads the entire cache into a local list variable, then writes value y to location x. After this happens and passes, it saves the list once more to a file.
+----------------------------
+----------------------------
+sprint(x)
+Function used to display text in the terminal one character at a time, as opposed to all at once. When called, for the length of input x, it will print each character (c), run flush to output immediately, and sleep for 0.05 seconds each letter. Once complete, it'll sleep for another half second before printing a newline character and returning to the function that called it.
