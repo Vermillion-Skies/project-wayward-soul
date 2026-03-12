@@ -2,3 +2,5 @@
 /GameFiles/Saves
 #Ignore the random ass cache files that keep showing up
 /GameFiles/__pycache__
+#Ignore private todo list when pushing public releases
+/GameFiles/Documentation/todolist.txt
