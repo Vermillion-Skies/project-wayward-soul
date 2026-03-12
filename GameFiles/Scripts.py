@@ -1,4 +1,6 @@
 import os
+import sys
+import time
 def screenclear(): #function to blank out the terminal window for the game 
     rep = int(0)
     try:
@@ -101,3 +103,10 @@ def writecache(x, y): #Write value y to line x of the cache
     except Exception as e:
         errorhandle("WC1")
         pass
+def sprint(x): #Special print function to print each character one at a time
+    for c in x:
+        sys.stdout.write(c)
+        sys.stdout.flush() #Forces immediate output
+        time.sleep(0.05) #Small delay before typing next character
+    time.sleep(0.5) #Delay between next text line
+    print() #Prints a newline character
