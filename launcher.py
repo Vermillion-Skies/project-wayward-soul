@@ -26,7 +26,11 @@ def makecache(): #Function to make the cachelocal.txt file
         pass
     pass
 makecache()
-print("Welcome to the Python RPG project (working title)")
+cs = int(0)
+while cs < 100:
+    print("")
+    cs = cs + 1
+print("Welcome to Project Wayward Soul")
 print("The game will now check if you have all needed files")
 activeinput = 1
 retval = 0 #Sets a zeroed out return value. A value of 1 means the operation passed, a value of 2 means there was an error
