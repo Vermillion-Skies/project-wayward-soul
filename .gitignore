@@ -4,3 +4,5 @@
 /GameFiles/__pycache__
 #Ignore private todo list when pushing public releases
 /Documentation/todolist.txt
+#Ignores autosaves made by KATE, dunno why they were here at all tbh
+/Documentation/*.kate-swp
