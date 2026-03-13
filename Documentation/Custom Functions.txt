@@ -33,3 +33,7 @@ Function used to write values to the cache. Loads the entire cache into a local 
 ----------------------------
 sprint(x)
 Function used to display text in the terminal one character at a time, as opposed to all at once. When called, for the length of input x, it will print each character (c), run flush to output immediately, and sleep for 0.05 seconds each letter. Once complete, it'll sleep for another half second before printing a newline character and returning to the function that called it.
+----------------------------
+----------------------------
+gameover()
+Function to have a unified game over dialog throughout the game. Calls sprint and prints a few lines of text before calling an unbreakable loop forcing restart.
