@@ -8,7 +8,7 @@ Story>
 
     Prologue: Complete
 
-    Chapter One: WIP (Currently developing part 3)
+    Chapter One: WIP (Currently developing part 4)
 
 Functions>
 
