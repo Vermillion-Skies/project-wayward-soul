@@ -9,7 +9,7 @@ Plane of souls
     A realm where souls with no form wander for eternity. The realm itself has no form, no governing bodies, and almost nothing in and of itself
 Viper Field
     The field where the player awakens after abandoning the plane of souls. Mostly a vast area of grass, with one single tree in the dead center.
-Town of Victrex
+Viper Village
     Small town by viper field, seemingly abandoned.
 ----------------------------
 ----------------------------
@@ -18,5 +18,5 @@ Characters (by chapter and part introduction)
 THE VOICE (Chapter 1, part 1) [literally an ethereal being, who cares about pronouns]
     The guiding character throughout the story. Little is known about them, and nobody but the player can seem to hear them
 Gen (Chapter 1, part 3) [they/them]
-    Travelling painter, finds the player under a tree at the beginning of the game.
+    Travelling painter, finds the player under a tree at the beginning of the game. Deadass I'm going to write him like Ned Flanders. I am not joking.
 ----------------------------
