@@ -280,7 +280,7 @@ def part3(): #Function for all logic for part 3
     Scripts.sprint("???: What're you doing all the way out here, stranger?")
     Scripts.sprint("???: Nobody's roamed these plains in quite some time.")
     activeinput = 1
-    while activeinput == 1:
+    while activeinput == 1: #Choice loop 3-2
         print("")
         print("1) Answer honestly")
         print("2) Lie")
@@ -289,24 +289,64 @@ def part3(): #Function for all logic for part 3
         if answer == str("1"):
             print("")
             print("----------")
-            Scripts.sprint(name + ":I woke up here after a voice told me something about a path?")
+            Scripts.sprint(name + ": I woke up here after a voice told me something about a path?")
             Scripts.sprint("*Even you think you sound crazy saying this.")
             Scripts.sprint("*The stranger looks at you with concern")
             Scripts.sprint("???: Did you hit your head or something, pal?")
-            Scripts.sprint("*He clearly doesn't believe you. Not unexpected.")
+            Scripts.sprint("*They clearly don't believe you. Not unexpected.")
             Scripts.sprint("???: Well, no matter!")
             Scripts.sprint("*The individual's expression changes almost instantly.")
             activeinput = 0
             pass
         elif answer == str("2"):
+            print("")
+            print("----------")
+            Scripts.sprint(name + ": I'm uh... a traveller from a far off land")
+            Scripts.sprint("*You don't even sound convinced of yourself")
+            Scripts.sprint("???: A traveller, huh? Well, that's wonderful!")
+            Scripts.sprint("*Somehow the stranger entirely buys the lie")
+            Scripts.sprint("???: After all...")
+            activeinput = 0
             pass
         elif answer == str("3"):
+            print("")
+            print("----------")
+            Scripts.sprint("*You remain silent, not answering their question")
+            Scripts.sprint("*They look... almost saddened by this")
+            Scripts.sprint("???: Not much of a talker, huh?")
+            Scripts.sprint("*Then suddenly, they perk up once more")
+            Scripts.sprint("???: No matter! I'm not going to make you talk if you don't want to!")
+            Scripts.sprint("*They put their hand gently on your shoulder")
+            Scripts.sprint("*It feels warm, comforting even")
+            maxhealth = int(maxhealth) + 10
+            health = maxhealth
+            Scripts.sprint("(Max health increased to" + str(maxhealth) +"!)")
+            Scripts.sprint("???: I don't need to know anything about you to know...")
+            activeinput = 0
             pass
         else:
             print("Invalid input, please try again")
             pass
         pass
-    Scripts.sprint("???: The land of (PLACEHOLDER LMFAO) welcomes all!")
+    Scripts.sprint("???: No matter what led you here...")
+    Scripts.sprint("*They somehow smile wider. It's almost eerie")
+    Scripts.sprint("???: The home of Gen welcomes all!")
+    Scripts.sprint(name + ": ...house of Gen?")
+    Scripts.sprint("*They look at you confused before breaking into light laughter")
+    Scripts.sprint("???: How silly of me, I never told you that was my name!")
+    Scripts.sprint("Gen: Name's Gen, nice to meet you...")
+    Scripts.sprint("Gen: What was your name again?")
+    Scripts.sprint("*Might as well tell them your name, no harm in that")
+    Scripts.sprint(name + ": ..." + name)
+    Scripts.sprint("Gen: Well then, " + name + ", you look absolutely beat. How about you come stay at my place in Viper Village for a bit?")
+    Scripts.sprint(name + ": Viper Village?")
+    Scripts.sprint("Gen: Yeah, the town over there, I'm sure you saw it right?")
+    Scripts.sprint("*Gen points at the seemingly abandoned town at the edge of the field")
+    Scripts.sprint("*It should be safe to stay there if you're with someone")
+    Scripts.sprint("*Not that there seems to be another option")
+    Scripts.sprint("*With a slightly hesitant nod, you get up, with help from Gen, and make your way to Viper Village")
+    answer = str(input("(Press enter to continue)"))
+    makesave(4)
     pass
 Scripts.screenclear() #the initial game logic that runs at the start
 toload = Scripts.checkcache(0)
