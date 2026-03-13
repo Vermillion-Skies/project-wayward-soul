@@ -477,11 +477,37 @@ def part4():
         elif answer == str("2"):
             print("")
             print("----------")
+            sprint("*You hesitate, but ultimately agree.")
+            sprint("*You quickly take off, leaving Gen to fight.")
+            sprint("*You hope they can survive, but you can't worry about that too much.")
+            c1p4v2 = str("3")
+            activeinput = 0
             pass
         else:
             sprint("Invalid input, please try again.")
             pass
         pass
+    if c1p4v2 == str("1"): # STR check pass
+        pass
+    elif c1p4v2 == str("2"): # STR check fail
+        sprint("*You and Gen stumble through the door, both breathing heavily.")
+        sprint("*Gen slowly lowers you onto a chair at the table in the center of the room.")
+        sprint("Gen: You alright?")
+        sprint(name + ": ...been better.")
+        sprint("Gen: Fair, but at least we're alive...")
+        sprint("*Gen sighs, sitting down across from you.")
+    elif c1p4v2 == str("3"): # You ran
+        sprint("*You slam your body into the door, opening it with a violent thud before closing it even more violently.")
+        sprint("*You collapse against the door, panting rapidly.")
+        sprint("*Was it really the right move to abandon Gen...?")
+        sprint("*As you think about this, you hear a knock at the door")
+        sprint("Gen: Hey! " + name + "! I got it!")
+        sprint("*You breathe a sigh of relief. Gen survived after all.")
+        sprint("*You open the door for them, and they walk in.")
+        sprint("*Their knife is stained with spider blood, but they seem unharmed.")
+        sprint("*You both sit down at the table in the center of the room")
+        pass
+    #Probably a good idea to smooth transfer into the table scene here
     pass
 Scripts.screenclear() #the initial game logic that runs at the start
 toload = Scripts.checkcache(0)
