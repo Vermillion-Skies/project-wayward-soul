@@ -567,6 +567,32 @@ def part4():
             pass
         elif answer == str("3"):
             if c1p4v1 == str("y"):
+                sprint(name + ": So Gen... What the hell happened in this town?")
+                sprint("Gen: I figured you'd ask at some point.")
+                sprint("*Gen reaches down and grabs two drinks, tossing you one.")
+                sprint("*You open the lid and take a sip.")
+                sprint("*It tastes sweet, and very nice.")
+                sprint("*Gen takes a deep sip before continuing.")
+                sprint("Gen: It was a day like any other... Kids playing, the miners were returning from the caves, the hunters returned with food...")
+                sprint("Gen: I was sitting on the porch enjoying a drink with...")
+                sprint(name + ": With...?")
+                sprint("*Gen takes a deep, almost pained sigh.")
+                sprint("Gen: Matilda. My... My wife.")
+                sprint("*You take a breath. This is going to be a painful story.")
+                sprint("Gen: We were sitting there, watching our kids play in the yard, when we heard screams.")
+                sprint("Gen: I told Matilda to wait on the porch while I went to the source, but by the time I went inside to grab my knife... it was too late.")
+                sprint("Gen: When I came back out, the whole village was in flames. And the smell of blood and ash was intense.")
+                sprint("Gen: My wife laid dead on the porch, my kids charred and collapsed in the yard.")
+                sprint("Gen: And at the center of it all... The Black Flame.")
+                sprint(name + ": Black Flame?")
+                sprint("Gen: A band of criminals who use magic to steal from villages and leave them dead and demolished.")
+                sprint("Gen: We never stood a chance...")
+                sprint("Gen: I ended up passing out from the shock of it all, and when I came to they were gone.")
+                sprint("Gen: I swear, one day I will find them. And I will have no mercy until their blood stains my blade.")
+                sprint(name + ": I'm sorry, I never knew...")
+                sprint("*Somehow, Gen smiles once more.")
+                sprint("Gen: It's quite alright, " + name + ". You couldn't have known, could you?")
+                sprint("*Gen takes a sip of their drink, returning the room to silence.")
                 pass
             else:
                 sprint("Invalid input, try again.")
