@@ -39,6 +39,9 @@ def makesave(x): #Function to prep for saving, as well as advancing to the next 
         if part == str("1"):
             part1()
             pass
+        elif part == str("2"):
+            part2()
+            pass
         else:
             Scripts.errorhandle("C11")
             pass
@@ -121,6 +124,93 @@ def part1():
     sprint("*The ground forms a pit, and both you and Gen fall into its depths.")
     makesave(2)
     pass
+def part2():
+    global chapter #sets many variables to be global, rather than locked to this function
+    global part
+    global name 
+    global health
+    global maxhealth
+    global money
+    global strength
+    global defense
+    global wisdom
+    global speed
+    Scripts.screenclear()
+    sprint("???: ...ey.")
+    sprint("*...?")
+    sprint("???: ...hey!")
+    sprint("*A voice...? Am I dead again?")
+    sprint("???: Hey sleepyhead, wake up!!")
+    sprint("*You slowly open your eyes.")
+    sprint("*You seem to be somewhere in the forest.")
+    sprint("???: Finally! I thought you were a goner, you know!")
+    sprint("*You look to your right to see a woman in a white dress, adorned with leaves. She has a bright red rose in her flowing, emerald green hair.")
+    sprint(name + ": What happened...?")
+    sprint("???: Oh shoot, did you hit your head or something?")
+    sprint("*Your head does feel some slight pain.")
+    sprint("???: Here, let me help you up.")
+    sprint("*The woman puts her arm under yours, lifting you with ease.")
+    sprint("???: I'm Pea, by the way.")
+    sprint(name + ": ..." + name)
+    sprint("Pea: Oh that's a relief, you at least remember your name.")
+    sprint("*Pea walks you over to a small camp, where another woman sits waiting.")
+    sprint("*She has similarly long hair, but rather than Pea's green, hers is a bright crimson red.")
+    sprint("*She's wearing a sports bra and jean shorts with black leggings.")
+    sprint("???: Oh, Pea! Welcome back honey!")
+    sprint("*You see Pea smile as this woman speaks to her.")
+    sprint("Pea: Hey Pepper. Found the source of that crashing noise.")
+    sprint("*Seems that woman is named Pepper. And these two are... friends of some sort?")
+    sprint("*Pea lays you down and walks over to Pepper.")
+    sprint("Pea: Missed you, sweetie.")
+    sprint("*Pea kisses Pepper on her cheek. Definitely not friends.")
+    sprint("Pepper: You really are too kind, my little snap pea.")
+    sprint("*As much as you enjoy seeing a loving couple, you do want to figure some stuff out.")
+    activeinput = 1
+    c2p2v1 = 0
+    c2p2v2 = 0
+    c2p2v3 = 0
+    while activeinput == 1:
+        print("1) Ask who they are")
+        print("2) Ask where they are")
+        print("3) Ask what happened")
+        if c2p2v1 == 1:
+            if c2p2v2 == 1:
+                if c2p2v3 == 1:
+                    print("4) Ask where Gen is.")
+                    pass
+                else:
+                    pass
+                pass
+            else:
+                pass
+            pass
+        answer = str(input("Make your choice "))
+        if answer == str("1"):
+            pass
+        elif answer == str("2"):
+            pass
+        elif answer == str("3"):
+            pass
+        elif answer == str("4"):
+            if c2p2v1 == 1:
+                if c2p2v2 == 1:
+                    if c2p2v3 == 1:
+                        sprint("*You ask them where Gen is.")
+                        activeinput = 0
+                        pass
+                    else:
+                        pass
+                    pass
+                else:
+                    pass
+                pass
+            else:
+                sprint("Invalid input, try again.")
+        else:
+            sprint("Invalid input, try again.")
+            pass
+        pass
+    sprint("Pea: ...Gen?")
 Scripts.screenclear() #the initial game logic that runs at the start
 toload = Scripts.checkcache(0)
 if toload ==str("y"):
@@ -132,5 +222,11 @@ if toload ==str("y"):
             varinit()
             part1()
             pass
+        elif varlist[1] == str("2"):
+            varinit()
+            part2()
+            pass
+        pass
+    pass
 elif toload == str("n"):
     part1()
