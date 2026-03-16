@@ -12,6 +12,8 @@ Vyper Field (chapter 1, part 2)
     The field where the player awakens after abandoning the plane of souls. Mostly a vast area of grass, with one single tree in the dead center.
 Vyper Village (chapter 1, part 3)
     Small town by vyper field, seemingly abandoned.
+The Astral Plane (chapter 1, part 5)
+    A realm controlled by a formless ethereal being, only those selected by this being can visit while within a dream
 ----------------------------
 ----------------------------
 Events 
