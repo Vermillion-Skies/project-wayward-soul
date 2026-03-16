@@ -12,9 +12,10 @@ def varinit(): #Initializes all variables to make sure they exist
     global defense
     global wisdom
     global speed
+    global gender
     global varlist
     try:
-        chapter, part, name, health, maxhealth, money, strength, defense, wisdom, speed = varlist
+        chapter, part, name, health, maxhealth, money, strength, defense, wisdom, speed, gender = varlist
     except Exception as e:
         Scripts.errorhandle("C10")
     pass
@@ -30,7 +31,7 @@ def makesave(x): #Function to prep for saving, as well as advancing to the next 
     print("")
     answer = str(input("Would you like to save the game? (y/n) ")) #Asks user to confirm the save
     if answer == str("y"):
-        varlist =[str(chapter), str(part), str(name), str(health), str(maxhealth), str(money), str(strength), str(defense), str(wisdom), str(speed)] #Sets varlist to all variables needed for a save
+        varlist =[str(chapter), str(part), str(name), str(health), str(maxhealth), str(money), str(strength), str(defense), str(wisdom), str(speed), str(gender)] #Sets varlist to all variables needed for a save
         Scripts.savegame(varlist) #Calls savegame with the varlist as an argument
         pass
     else:
@@ -41,6 +42,9 @@ def makesave(x): #Function to prep for saving, as well as advancing to the next 
             pass
         elif part == str("2"):
             part2()
+            pass
+        elif part == str("3"):
+            part3()
             pass
         else:
             Scripts.errorhandle("C11")
@@ -60,6 +64,7 @@ def part1():
     global defense
     global wisdom
     global speed
+    global gender
     Scripts.screenclear()
     sprint("*After walking for about an hour, you and Gen arrive at the Serpentine Forest.")
     sprint("*The atmosphere around the forest is eerie, to say the least.")
@@ -122,6 +127,7 @@ def part1():
     sprint("*As the voice says this, the ground starts shaking beneath you.")
     sprint("Gen: What the hell is going on?!")
     sprint("*The ground forms a pit, and both you and Gen fall into its depths.")
+    answer = str(input("Press enter to continue."))
     makesave(2)
     pass
 def part2():
@@ -135,6 +141,7 @@ def part2():
     global defense
     global wisdom
     global speed
+    global gender
     Scripts.screenclear()
     sprint("???: ...ey.")
     sprint("*...?")
@@ -186,10 +193,76 @@ def part2():
             pass
         answer = str(input("Make your choice "))
         if answer == str("1"):
+            if c2p2v1 == 1:
+                Scripts.linebreak()
+                sprint(name + ": So, who are you two?")
+                sprint("*Pea and Pepper both look at you.")
+                sprint("Pepper: We... Just explained it?")
+                sprint("Pea: Are you sure you didn't hit your head, darling?")
+                sprint("*You did already ask them this.")
+                sprint("*You decide to ask something else")
+                pass
+            elif c2p2v1 == 0:
+                Scripts.linebreak()
+                sprint(name + ": So, who are you two?")
+                sprint("Pea: Well, I'm Pea and this is Pepper.")
+                sprint("*Pepper waves.")
+                sprint("Pea: We live together in this forest, and have for a long time.")
+                sprint("Pepper: And it's been really nice up until recently, when that weird voice showed up and threw you in here.")
+                sprint("*Pepper stops.")
+                sprint("Pepper: Not to say we aren't happy to have you, of course! We just don't know what that voice is.")
+                sprint(name + ": And you two are friends? Roommates?")
+                sprint("*Pea giggles lightheartedly.")
+                sprint("Pea: Moreso lovers than friends.")
+                sprint("Pepper: Yep! And I couldn't be happier with my darling snappea!")
+                sprint("*You smile happily, they seem like they belong together.")
+                c2p2v1 = 1
+                pass
             pass
         elif answer == str("2"):
+            if c2p2v2 == 1:
+                Scripts.linebreak()
+                sprint(name + ": So, where are we?")
+                sprint("*Pea and Pepper both turn and stare at you.")
+                sprint("Pepper: Pea, you didn't drop " + name + " did you?")
+                sprint("Pea: I thought I didn't but I am now starting to get concerned...")
+                sprint("*You did already ask this question.")
+                sprint("*You decide to ask something else.")
+                pass
+            elif c2p2v2 == 0:
+                Scripts.linebreak()
+                sprint(name + ": So, where exactly are we?")
+                sprint("Pea: Well, we're in the middle of the Serpentine Forest.")
+                sprint("Pepper: Yeah, we've lived here for a couple of years now. Our cabin isn't too far from here, we just wanted to camp out here for a bit.")
+                sprint("Pea: The view of the stars from this spot is phenomenal at night. My Pepper here loves staring into them.")
+                sprint("*You see Pepper turn red and elbow Pea.")
+                sprint("Pepper: You don't need to go around spreading my secrets to every single " + str(Scripts.gendercheck(gender, 0, 0, name)) + " you meet, you know.")
+                sprint("Pea: Oh, but you're so cute when you're embarassed like this.")
+                sprint("*You see Pepper turn an even brighter shade of red, you didn't think it was possible to get that red.")
+                sprint("Pea: But yes, that's where we are, " + name + ".")
+                sprint("*You feel relieved that the conversation ended there.")
+                sprint("*Pepper almost looks like she's on fire.")
+                c2p2v2 = 1
+                pass
             pass
         elif answer == str("3"):
+            if c2p2v3 == 1:
+                sprint(name + ": So, what happened exactly?")
+                sprint("*They both look at you with concern.")
+                sprint("Pea: Are you sure you're feeling okay, " + name + "?")
+                sprint("Pepper: You were probably too rough carrying " + str(Scripts.gendercheck(gender, 2, 0, name)) + " back, Pea.")
+                sprint("Pea: I promise I treated " + str(Scripts.gendercheck(gender, 2, 0, name)) + " with the utmost care, Pepper.")
+                sprint("*You did already ask this question.")
+                sprint("*You should ask something else.")
+                pass
+            elif c2p2v3 == 0:
+                sprint(name + ": So, what happened?")
+                sprint("Pepper: Your guess is as good as ours. Me and Pea were just sitting here drinking tea when we heard a loud crash.")
+                sprint("Pea: When I went over to investigate, that's when I found you laying in a crater, " + name + ".")
+                sprint(name + ": Is that all you have?")
+                sprint("Pepper: Yeah, sorry. We have just as much info as you do.")
+                c2p2v3 = 1
+                pass
             pass
         elif answer == str("4"):
             if c2p2v1 == 1:
@@ -211,6 +284,36 @@ def part2():
             pass
         pass
     sprint("Pea: ...Gen?")
+    sprint(name + ": I was exploring this area with Gen when the voice came and took us.")
+    sprint("Pea: Sorry, I didn't see them with you...")
+    sprint("Pepper: Hold on, Pea. When you left to go get " + str(Scripts.gendercheck(gender, 2, 0, name)) + ", there was another crash.")
+    sprint("*Pea looks at pepper, as do you.")
+    sprint("Pea: Are you sure, love?")
+    sprint("*Pepper nods.")
+    sprint("Pepper: Yeah. It didn't sound too far from here, we can take " + name + " with us!")
+    sprint("Pea: It would be best to make sure this Gen person is safe.")
+    sprint("*Both women turn to face you.")
+    sprint("Pepper: Come on, " + name + ", let's go get your friend!")
+    answer = str(input("Press enter to continue."))
+    makesave(3)
+    pass
+def part3():
+    global chapter #sets many variables to be global, rather than locked to this function
+    global part
+    global name 
+    global health
+    global maxhealth
+    global money
+    global strength
+    global defense
+    global wisdom
+    global speed
+    global gender
+    Scripts.screenclear()
+    sprint("Part 3 is currently under development.")
+    sprint("Check back later once I'm done!")
+    answer = str(input("Please close the game."))
+    pass
 Scripts.screenclear() #the initial game logic that runs at the start
 toload = Scripts.checkcache(0)
 if toload ==str("y"):
@@ -225,6 +328,10 @@ if toload ==str("y"):
         elif varlist[1] == str("2"):
             varinit()
             part2()
+            pass
+        elif varlist[1] == str("3"):
+            varinit()
+            part3()
             pass
         pass
     pass
