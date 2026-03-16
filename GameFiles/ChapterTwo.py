@@ -105,6 +105,21 @@ def part1():
             sprint("Invalid input, try again.")
             pass
         pass
+    sprint("*As you step closer to the forest, you feel a chill down your spine.")
+    sprint("Gen: You okay, " + name + "?")
+    sprint(name + ": Yeah, the forest just has an unsettling look to it.")
+    sprint("Gen: It's worse inside. I will warn you, we'll probably have to do some fighting in there.")
+    sprint("Gen: It's not too late to back out, you know.")
+    sprint("*As much as you wish that were true, you don't have anywhere else to go but forward.")
+    sprint(name + ": I'll be fine. Let's get going.")
+    sprint("*Gen nods, and you both take another step toward the forest, when suddenly...")
+    sprint("???: WHO DARES TO DISTURB MY FOREST??")
+    sprint("*A deep voice speaks out within the trees.")
+    sprint("???: THOSE WHO TRESSPASS ON THE GROUNDS OF THIS FOREST SHALL FOREVER BE TIED TO IT'S PATHS!")
+    sprint("*As the voice says this, the ground starts shaking beneath you.")
+    sprint("Gen: What the hell is going on?!")
+    sprint("*The ground forms a pit, and both you and Gen fall into its depths.")
+    makesave(2)
     pass
 Scripts.screenclear() #the initial game logic that runs at the start
 toload = Scripts.checkcache(0)
