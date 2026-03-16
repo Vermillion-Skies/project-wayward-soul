@@ -12,9 +12,10 @@ def varinit(): #Initializes all variables to make sure they exist
     global defense
     global wisdom
     global speed
+    global gender
     global varlist
     try:
-        chapter, part, name, health, maxhealth, money, strength, defense, wisdom, speed = varlist
+        chapter, part, name, health, maxhealth, money, strength, defense, wisdom, speed, gender = varlist
     except Exception as e:
         Scripts.errorhandle("C10")
     pass
@@ -30,7 +31,7 @@ def makesave(x): #Function to prep for saving, as well as advancing to the next 
     print("")
     answer = str(input("Would you like to save the game? (y/n) ")) #Asks user to confirm the save
     if answer == str("y"):
-        varlist =[str(chapter), str(part), str(name), str(health), str(maxhealth), str(money), str(strength), str(defense), str(wisdom), str(speed)] #Sets varlist to all variables needed for a save
+        varlist =[str(chapter), str(part), str(name), str(health), str(maxhealth), str(money), str(strength), str(defense), str(wisdom), str(speed), str(gender)] #Sets varlist to all variables needed for a save
         Scripts.savegame(varlist) #Calls savegame with the varlist as an argument
         pass
     else:
@@ -69,6 +70,7 @@ def part1(): #Function for the beginning character creation part of the game (re
     global defense
     global wisdom
     global speed
+    global gender
     Scripts.screenclear()
     Scripts.sprint("*You have wandered the Plane Of Souls for quite some time.")
     Scripts.sprint("*At least, you think you have.")
@@ -88,9 +90,50 @@ def part1(): #Function for the beginning character creation part of the game (re
         Scripts.errorhandle("C12")
     Scripts.sprint("The Voice: " + name + "...")
     Scripts.sprint("The Voice: A name most uncommon in this world, and yet not an unwelcome one.")
+    Scripts.sprint("The Voice: And how do you wish to be formed?")
+    activeinput = 1
+    while activeinput == 1:
+        print("0) Non-binary / other (they/them pronouns)")
+        print("1) Male (he/him pronouns)")
+        print("2) Female (she/her pronouns)")
+        print("3) Ambiguous (no pronouns)")
+        answer = str(input("(Enter your gender)"))
+        if answer == str("0"):
+            Scripts.sprint("The Voice: Ah, a soul with a form that defies gender.")
+            Scripts.sprint("The Voice: Admittedly a refreshing change.")
+            Scripts.sprint("The Voice: Very well then, " + name + ".")
+            gender = str("0")
+            activeinput = 0
+            pass
+        elif answer == str("1"):
+            Scripts.sprint("The Voice: A soul with the body of a man, hm?")
+            Scripts.sprint("The Voice: I expected as much from that name, I'm quite pleased to be corect.")
+            Scripts.sprint("The Voice: Very well, sir " + name + ".")
+            gender = str("1")
+            activeinput = 0
+            pass
+        elif answer == str("2"):
+            Scripts.sprint("The Voice: Ah, the body of a fair lady then?")
+            Scripts.sprint("The Voice: Certainly matches the soul, as both will be equally beautiful.")
+            Scripts.sprint("The Voice: Hope you enjoy your new form, miss " + name + ".")
+            gender = str("2")
+            activeinput = 0
+            pass
+        elif answer == str("3"):
+            Scripts.sprint("The Voice: Oh, is that right?")
+            Scripts.sprint("The Voice: You wish to simply be you, then?")
+            Scripts.sprint("The Voice: How noble indeed, "+ name + ".")
+            gender = str("3")
+            activeinput = 0
+            pass
+        else:
+            Scripts.sprint("Invalid input, try again.")
+            pass
+        pass
+    Scripts.sprint("The Voice: So, a " + Scripts.gendercheck(gender, 0, 0, name) + " named " + name + ".")
     Scripts.sprint("The Voice: Although, I could swear I've heard it before...")
     Scripts.sprint("The Voice: Ah, an unimportant detail.")
-    Scripts.sprint("The Voice: We shall now see how the world wishes to build you...")
+    Scripts.sprint("The Voice: We shall now see how exactly the world wishes to build your form...")
     answer = str(input("(Press enter to roll your stats. It will only be done once.)"))
     try:
         strength = random.randint(1,20)
@@ -142,6 +185,7 @@ def part2(): # Function for all logic of the second part of the first chapter of
     global defense
     global wisdom
     global speed
+    global gender
     Scripts.screenclear()
     Scripts.sprint("*When you finally come to, you slowly open your eyes.")
     Scripts.sprint("*You did not have eyes before, you don't believe you ever have.")
@@ -226,6 +270,7 @@ def part3(): #Function for all logic for part 3
     global defense
     global wisdom
     global speed
+    global gender
     Scripts.screenclear()
     Scripts.sprint("*As you register the hand that grabbed you, you can feel your heart racing uncontrollably.")
     Scripts.sprint("*However, you need to swallow your fear and make a decision before it's too late...")
@@ -363,6 +408,7 @@ def part4():
     global defense
     global wisdom
     global speed
+    global gender
     Scripts.screenclear()
     Scripts.sprint("*Gen leads you into town, and it's just as barren as you thought.")
     Scripts.sprint("*Homes are empty, windows are smashed, and there's not a single sign of life outside of you and Gen.")
@@ -629,6 +675,7 @@ def part5():
     global defense
     global wisdom
     global speed
+    global gender
     Scripts.screenclear()
     Scripts.sprint("The Voice: My, my. What a day you've had, huh " + name + "?")
     Scripts.sprint("*You bolt up, awoken by a familiar voice.")

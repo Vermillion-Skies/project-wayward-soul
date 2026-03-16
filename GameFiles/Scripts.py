@@ -144,4 +144,190 @@ def loadchapter(x): #Loads a defined chapter
 def linebreak(): #Literally just a linebreak for choice loops
     print("")
     print("----------")
-    pass        
+    pass
+def gendercheck(x, y, z, a): # Checks gender and returns the appropriate term for what's requested
+    if x == 0: #Checks for non-binary gender
+        if y == 0: #returns "person"
+            if z == 0: #lowercase
+                return("person")
+                pass
+            elif z == 1: #Capitalized
+                return("Person")
+                pass
+            elif z == 2: #All caps
+                return("PERSON")
+                pass
+            pass
+        elif y == 1: #Returns "they"
+            if z == 0: #lowercase
+                return("they")
+                pass
+            elif z == 1: #Capitalized
+                return("They")
+                pass
+            elif z == 2: #All caps
+                return("THEY")
+                pass
+            pass
+        elif y == 2: #returns "them"
+            if z == 0: #lowercase
+                return("them")
+                pass
+            elif z == 1: #Capitalized
+                return("Them")
+                pass
+            elif z == 2: #All caps
+                return("THEM")
+                pass
+            pass
+        elif y == 3: #Returns theirs
+            if z == 0: #lowercase
+                return("theirs")
+                pass
+            elif z == 1: #Capitalized
+                return("Theirs")
+                pass
+            elif z == 2: #All caps
+                return("THEIRS")
+                pass
+            pass
+        pass
+    elif x == 1: #Checks for male gender
+        if y == 0: #returns "man"
+            if z == 0: #lowercase
+                return("man")
+                pass
+            elif z == 1: #Capitalized
+                return("Man")
+                pass
+            elif z == 2: #All caps
+                return("MAN")
+                pass
+            pass
+        elif y == 1: #Returns "he"
+            if z == 0: #lowercase
+                return("he")
+                pass
+            elif z == 1: #Capitalized
+                return("He")
+                pass
+            elif z == 2: #All caps
+                return("HE")
+                pass
+            pass
+        elif y == 2: #returns "him"
+            if z == 0: #lowercase
+                return("him")
+                pass
+            elif z == 1: #Capitalized
+                return("Him")
+                pass
+            elif z == 2: #All caps
+                return("HIM")
+                pass
+            pass
+        elif y == 3: #Returns "his"
+            if z == 0: #lowercase
+                return("his")
+                pass
+            elif z == 1: #Capitalized
+                return("His")
+                pass
+            elif z == 2: #All caps
+                return("HIS")
+                pass
+            pass
+        pass
+    elif x == 2: #Checks for female gender
+        if y == 0: #returns "woman"
+            if z == 0: #lowercase
+                return("woman")
+                pass
+            elif z == 1: #Capitalized
+                return("Woman")
+                pass
+            elif z == 2: #All caps
+                return("WOMAN")
+                pass
+            pass
+        elif y == 1: #Returns "she"
+            if z == 0: #lowercase
+                return("she")
+                pass
+            elif z == 1: #Capitalized
+                return("She")
+                pass
+            elif z == 2: #All caps
+                return("SHE")
+                pass
+            pass
+        elif y == 2: #returns "her"
+            if z == 0: #lowercase
+                return("her")
+                pass
+            elif z == 1: #Capitalized
+                return("Her")
+                pass
+            elif z == 2: #All caps
+                return("HER")
+                pass
+            pass
+        elif y == 3: #Returns "hers"
+            if z == 0: #lowercase
+                return("hers")
+                pass
+            elif z == 1: #Capitalized
+                return("Hers")
+                pass
+            elif z == 2: #All caps
+                return("HERS")
+                pass
+            pass
+        pass
+    elif x == 2: #Checks for no gender
+        if y == 0: #returns "person"
+            if z == 0: #lowercase
+                return("person")
+                pass
+            elif z == 1: #Capitalized
+                return("Person")
+                pass
+            elif z == 2: #All caps
+                return("PERSON")
+                pass
+            pass
+        elif y == 1: #Returns name
+            if z == 0: #lowercase
+                return(a)
+                pass
+            elif z == 1: #Capitalized
+                return(a)
+                pass
+            elif z == 2: #All caps
+                return(a)
+                pass
+            pass
+        elif y == 2: #returns name
+            if z == 0: #lowercase
+                return(a)
+                pass
+            elif z == 1: #Capitalized
+                return(a)
+                pass
+            elif z == 2: #All caps
+                return(a)
+                pass
+            pass
+        elif y == 3: #Returns name's
+            if z == 0: #lowercase
+                return(a + "'s")
+                pass
+            elif z == 1: #Capitalized
+                return(a + "'s")
+                pass
+            elif z == 2: #All caps
+                return(a + "'s")
+                pass
+            pass
+        pass
+    pass

@@ -35,3 +35,9 @@ Line 9: Wisdom
     Player's WIS stat
 Line 10: Speed
     Player's SPD stat
+Line 11: Gender
+    Player assigned gender. Determines how characters refer to the player.
+    0 = Non-binary/other
+    1 = Male
+    2 = Female
+    3 = Ambiguous

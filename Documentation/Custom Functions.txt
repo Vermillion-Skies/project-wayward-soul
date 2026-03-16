@@ -45,3 +45,21 @@ Function to load a chapter defined by the caller. A simple nested conditional to
 ----------------------------
 linebreak()
 Function that prints an empty line with some dashes, since I kept using it within dialog
+----------------------------
+----------------------------
+gendercheck(x, y, z, a)
+Function to check the player's gender within dialog to determine how to refer to them. x is the gender code sent to the function from the parent program, y is the reference code, z determines capitalization, a is player name (only used for gender 3)
+Gender code lookups:
+    0: Non-binary
+    1: Male
+    2: Female
+    3: Ambiguous
+Ref. code lookups: (y)
+    0: Returns person/man/woman/person
+    1: Returns they/he/she/name
+    2: Returns them/him/her/name
+    3: Returns theirs/his/hers/name's
+Cap code lookups: (z)
+    0: non capitalized
+    1: capitalized
+    2: all caps
