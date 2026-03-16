@@ -14,6 +14,8 @@ Vyper Village (chapter 1, part 3)
     Small town by vyper field, seemingly abandoned.
 The Astral Plane (chapter 1, part 5)
     A realm controlled by a formless ethereal being, only those selected by this being can visit while within a dream
+The Serpentine Forest (Chapter 1, part 5)
+    A forest lining one of the edges of Vyper Field. Previously full of life, now extremely hostile and overrun with monsters
 ----------------------------
 ----------------------------
 Events 
