@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import subprocess 
 def screenclear(): #function to blank out the terminal window for the game 
     rep = int(0)
     try:
@@ -132,3 +133,10 @@ def gameover(): #Text that will display upon a game over
     while unkill == 10: #Literally just an unkillable loop to force a restart of the game
         time.sleep(1)
     pass
+def loadchapter(x): #Loads a defined chapter
+    if x == str("1"):
+        subprocess.run(["python", "GameFiles/ChapterOne.py"])
+        pass
+    elif x == str("2"):
+        subprocess.run(["python", "GameFiles/ChapterTwo.py"])
+        pass
