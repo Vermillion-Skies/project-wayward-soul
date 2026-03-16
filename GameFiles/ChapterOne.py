@@ -528,8 +528,42 @@ def part4():
         print("4) Allow the silence to stay")
         answer = str(input("Make your choice "))
         if answer == str("1"):
+            sprint(name + ": So just what the hell was that thing?")
+            sprint("Gen: Oh, that was a crawler.")
+            sprint(name + ": Crawler...?")
+            sprint("Gen: Yeah, crawlers. Ten legged spider freaks that have enough venom to kill you if you look at them wrong.")
+            sprint("Gen: They're easy enough to kill, but still dangerous and honestly just annoying.")
+            sprint(name + ": I see...")
+            sprint("*You count yourself lucky to be alive.")
             pass
         elif answer == str("2"):
+            sprint("*You look around Gen's house.")
+            sprint("*It's fairly basic. Small kitchen, a singular window, and...")
+            sprint("*Two beds...?")
+            sprint("*Why would they need multiple beds...?")
+            activeinput2 = 1
+            while activeinput2 == 1:
+                print("1) Ask about it")
+                print("2) Leave it be")
+                answer2 = str(input("Make your choice "))
+                if answer2 == str("1"):
+                    sprint(name + ": Hey, Gen?")
+                    sprint("*Gen turns to face you.")
+                    sprint(name + ": The beds... You used to live here with someone else, didn't you?")
+                    sprint("*You see Gen freeze up a little.")
+                    sprint("Gen: It's... a long story...")
+                    sprint("*It seems Gen won't answer readily.")
+                    sprint("*Best not to push it.")
+                    activeinput2 = 0
+                    pass
+                elif answer2 == str("2"):
+                    sprint("*You decide to leave it be, probably a touchy subject")
+                    activeinput2 = 0
+                    pass
+                else:
+                    sprint("Invalid input, try again.")
+                    pass
+                pass
             pass
         elif answer == str("3"):
             if c1p4v1 == str("y"):
