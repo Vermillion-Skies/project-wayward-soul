@@ -6,11 +6,11 @@ sorted by chapter and part introduction
 ----------------------------
 World
 ----------------------------
-Plane of souls
+Plane of souls (chapter 1, part 1)
     A realm where souls with no form wander for eternity. The realm itself has no form, no governing bodies, and almost nothing in and of itself
-Vyper Field
+Vyper Field (chapter 1, part 2)
     The field where the player awakens after abandoning the plane of souls. Mostly a vast area of grass, with one single tree in the dead center.
-Vyper Village
+Vyper Village (chapter 1, part 3)
     Small town by vyper field, seemingly abandoned.
 ----------------------------
 ----------------------------
