@@ -5,7 +5,13 @@ from toga.constants import Direction
 
 class WaywardSoul(toga.App):
     def startup(self):
-        main_box = toga.Box()
+        self.main_box = toga.Box()
+        self.loadtitlewindow()
+        self.main_window = toga.MainWindow(title=self.formal_name)
+        self.main_window.content = self.main_box
+        self.main_window.show()
+    def loadtitlewindow(self):
+        self.main_box = toga.Box()
         logobox = toga.Box(
             style=Pack(
                 flex=1
@@ -67,12 +73,9 @@ class WaywardSoul(toga.App):
             ],
             direction=Direction.HORIZONTAL
         )
-        main_box.add(
+        self.main_box.add(
             wholesplit
         )
-        self.main_window = toga.MainWindow(title=self.formal_name)
-        self.main_window.content = main_box
-        self.main_window.show()
 
 
 def main():
