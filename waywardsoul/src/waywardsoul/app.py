@@ -2,7 +2,7 @@ import toga
 from toga.style.pack import COLUMN, ROW
 from toga.style import Pack
 from toga.constants import Direction
-
+from pathlib import Path
 class WaywardSoul(toga.App):
     def startup(self):
         self.main_box = toga.Box()
@@ -77,15 +77,58 @@ class WaywardSoul(toga.App):
         )
         self.main_window.content = self.main_box
     def loadgame(self, widget):
-        self.main_box = toga.Box()
+        self.main_box = toga.Box(
+            direction=COLUMN
+        )
+        self.f1b = toga.Button(
+            "File One",
+            #on_press=self.loadsave,
+            enabled=False,
+            margin=5
+        )
+        self.f2b = toga.Button(
+            "File Two",
+            #on_press=self.loadsave,
+            enabled=False,
+            margin=5
+        )
+        self.f3b = toga.Button(
+            "File Three",
+            #on_press=self.loadsave,
+            enabled=False,
+            margin=5
+        )
         self.main_box.add(
             toga.Button(
                 "Go Back",
                 on_press=self.loadtitlewindow,
                 margin=5
-            )
+            ),
+            self.f1b,
+            self.f2b,
+            self.f3b
         )
+        self.verifysaves()
         self.main_window.content = self.main_box
+    def verifysaves(self):
+        filestocheck = 3
+        filechecking = 1
+        while filechecking <= filestocheck:
+            file = "sav0" + str(filechecking) + ".txt"
+            path = self.paths.data / file
+            if not path.exists():
+                pass
+            else:
+                if filechecking == 1:
+                    self.f1b.enabled = True
+                elif filechecking == 2:
+                    self.f2b.enabled = True
+                elif filechecking == 3:
+                    self.f3b.enabled = True
+            filechecking += 1
+            pass
+            
+        
 
 
 def main():
