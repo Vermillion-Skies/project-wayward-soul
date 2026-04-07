@@ -6,11 +6,10 @@ from toga.constants import Direction
 class WaywardSoul(toga.App):
     def startup(self):
         self.main_box = toga.Box()
-        self.loadtitlewindow()
         self.main_window = toga.MainWindow(title=self.formal_name)
-        self.main_window.content = self.main_box
+        self.loadtitlewindow()
         self.main_window.show()
-    def loadtitlewindow(self):
+    def loadtitlewindow(self, widget=None):
         self.main_box = toga.Box()
         logobox = toga.Box(
             style=Pack(
@@ -47,7 +46,7 @@ class WaywardSoul(toga.App):
         )
         lgb = toga.Button(
             "Load Game",
-            #on_press=self.loadgame,
+            on_press=self.loadgame,
             margin=5
         )
         cfb = toga.Button(
@@ -76,6 +75,17 @@ class WaywardSoul(toga.App):
         self.main_box.add(
             wholesplit
         )
+        self.main_window.content = self.main_box
+    def loadgame(self, widget):
+        self.main_box = toga.Box()
+        self.main_box.add(
+            toga.Button(
+                "Go Back",
+                on_press=self.loadtitlewindow,
+                margin=5
+            )
+        )
+        self.main_window.content = self.main_box
 
 
 def main():
