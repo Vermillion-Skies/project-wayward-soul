@@ -127,12 +127,12 @@ class WaywardSoul(toga.App):
             flex=0
         )
         self.winspeaker = toga.Label(
-            "Speaker",
+            self.currsce[0],
             margin=5,
             flex=0
         )
         self.windiag = toga.Label(
-            "Dialogue",
+            self.currsce[1],
             margin=5,
             flex=0
         )
@@ -175,7 +175,13 @@ class WaywardSoul(toga.App):
     def gwbp(self, widget):
         pass
     def newgame(self, widget):
-        pass
+        global chapter
+        global part
+        global diagID
+        chapter = 0
+        part = 0
+        diagID = 0
+        self.rungame()
     def verifysaves(self):
         filestocheck = 3
         filechecking = 1
@@ -194,7 +200,8 @@ class WaywardSoul(toga.App):
             filechecking += 1
             pass
     def rungame(self, widget=None):
-        self.gamewindow()
+        self.currsce = gamelogic.requestscene()
+        self.gamewindowdiag()
     def errwin(self):
         errd = toga.ErrorDialog(
             "An Error Has Occurred",
@@ -207,6 +214,16 @@ class WaywardSoul(toga.App):
         )
         task.add_done_callback(quit)
 class gamelogic:
-    pass
+    def requestscene():
+        global chapter
+        global part
+        if chapter == 0:
+            if part == 0:
+                retlist = gamelogic.c0p0()
+        return retlist
+    def c0p0():
+        if diagID == 0:
+            diag = ["System", "Welcome, adventurer, to the game."]
+        return diag
 def main():
     return WaywardSoul()
