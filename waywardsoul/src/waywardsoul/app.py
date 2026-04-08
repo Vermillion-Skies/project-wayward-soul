@@ -15,7 +15,7 @@ class WaywardSoul(toga.App):
             order=40
         )
         cmdsave = toga.Command(
-            self.savewindow,
+            self.savechk,
             text="Save Game",
             tooltip="Saves your game",
             group=prggroup,
@@ -26,8 +26,25 @@ class WaywardSoul(toga.App):
         )
         self.loadtitlewindow()
         self.main_window.show()
-    def savewindow(self, widget):
-        pass
+    def savechk(self, widget):
+        self.savewindow()
+    def savewindow(self, widget=None):
+        global savewin
+        savewin = toga.Window(
+            title="Save"
+        )
+        savewin.content = toga.Box(
+            direction=COLUMN,
+            children=[
+                toga.Button(
+                    "Close",
+                    on_press=self.closesave
+                )
+            ]
+        )
+        savewin.show()
+    def closesave(self, widget):
+        savewin.close()
     def loadtitlewindow(self, widget=None):
         self.main_box = toga.Box(
             flex=0,
