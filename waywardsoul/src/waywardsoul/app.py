@@ -173,7 +173,25 @@ class WaywardSoul(toga.App):
         )
         self.main_window.content = self.main_box
     def gwbp(self, widget):
-        pass
+        global chapter
+        global part
+        global diagID
+        if widget.text == "Continue":
+            diagID += 1
+            templist = gamelogic.requestscene()
+            if templist[0] == "LN":
+                if templist[1] == "P":
+                    part += 1
+                    templist = gamelogic.requestscene()
+                    pass
+                elif templist[1] == "C":
+                    chapter += 1
+                    part = 0
+                    templist = gamelogic.requestscene()
+            else:
+                self.winspeaker.text = templist[0]
+                self.windiag.text = templist[1]
+
     def newgame(self, widget):
         global chapter
         global part
@@ -224,6 +242,10 @@ class gamelogic:
     def c0p0():
         if diagID == 0:
             diag = ["System", "Welcome, adventurer, to the game."]
+        elif diagID == 1:
+            diag = ["System", "This game is a work of fiction. Any resemblences to any person, living or dead, is completely concidental."]
+        elif diagID == 2:
+            diag = ["System", "Only by accepting this will you be allowed to continue into the game."]
         return diag
 def main():
     return WaywardSoul()
