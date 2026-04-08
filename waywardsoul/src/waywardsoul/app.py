@@ -152,7 +152,7 @@ class WaywardSoul(toga.App):
             children=[
                 self.dwb1
             ],
-            direction=COLUMN
+            direction=ROW
         )
         self.gws = toga.SplitContainer(
             content=[
@@ -214,6 +214,48 @@ class WaywardSoul(toga.App):
                         self.dwb1
                     )
                     pass
+        else:
+            if chapter == 0:
+                if part == 0:
+                    if widget.text == "Yes":
+                        diagID = 4
+                        templist = gamelogic.requestscene()
+                        self.buttonbox.clear()
+                        self.winspeaker.text = templist[0]
+                        self.windiag.text = templist[1]
+                        self.buttonbox.add(
+                            self.dwb1
+                        )
+                        pass
+                    elif widget.text == "No":
+                        diagID = 7
+                        templist = gamelogic.requestscene()
+                        self.buttonbox.clear()
+                        self.winspeaker.text = templist[0]
+                        self.windiag.text = templist[1]
+                        self.buttonbox.add(
+                            self.dwb1
+                        )
+                    elif widget.text == "Next Chapter":
+                        chapter += 1
+                        diagID = 0
+                        templist = gamelogic.requestscene()
+                        self.buttonbox.clear()
+                        self.winspeaker.text = templist[0]
+                        self.windiag.text = templist[1]
+                        self.buttonbox.add(
+                            toga.Button(
+                                templist[4],
+                                on_press=self.gwbp,
+                                margin=5
+                            )
+                        )
+                    elif widget.text == "Return to Title":
+                        self.loadtitlewindow()
+            elif chapter == 1:
+                if part == 0:
+                    if widget.text == "Return to Title":
+                        self.loadtitlewindow()
     def newgame(self, widget):
         global chapter
         global part
@@ -260,6 +302,9 @@ class gamelogic:
         if chapter == 0:
             if part == 0:
                 retlist = gamelogic.c0p0()
+        elif chapter == 1:
+            if part == 0:
+                retlist = gamelogic.c1p0()
         return retlist
     def c0p0():
         if diagID == 0:
@@ -270,6 +315,22 @@ class gamelogic:
             diag = ["System", "Only by accepting this will you be allowed to continue into the game."]
         elif diagID == 3:
             diag = ["CHOICE", "Do you accept?", "buttons", 2, "Yes", "No"]
+        elif diagID == 4:
+            diag = ["System", "Excellent, quite excellent indeed."]
+        elif diagID == 5:
+            diag = ["System", "Since you agree, then we may continue."]
+        elif diagID == 6:
+            diag = ["System", "See you on the other side, traveller.", "buttons", 1, "Next Chapter"]
+        elif diagID == 7:
+            diag = ["System", "...I see then."]
+        elif diagID == 8:
+            diag = ["System", "Then I see little reason to keep this useless link open."]
+        elif diagID == 9:
+            diag = ["System", "Return to the plane of souls, traveller.", "buttons", 1, "Return to Title"]
+        return diag
+    def c1p0():
+        if diagID == 0:
+            diag = ["Notice", "Chapter One of the game is currently being ported to this new engine. \nPlease be patient while it is worked on.", "buttons", 1, "Return to Title"]
         return diag
 def main():
     return WaywardSoul()
