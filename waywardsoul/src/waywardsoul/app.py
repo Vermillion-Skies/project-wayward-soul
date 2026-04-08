@@ -111,6 +111,12 @@ class WaywardSoul(toga.App):
         self.main_box = toga.Box(
             direction=COLUMN
         )
+        self.f0b = toga.Button(
+            "Autosave",
+            #on_press=self.loadsave,
+            enabled=False,
+            margin=5
+        )
         self.f1b = toga.Button(
             "File One",
             #on_press=self.loadsave,
@@ -285,14 +291,16 @@ class WaywardSoul(toga.App):
         self.rungame()
     def verifysaves(self):
         filestocheck = 3
-        filechecking = 1
+        filechecking = 0
         while filechecking <= filestocheck:
             file = "sav0" + str(filechecking) + ".txt"
             path = self.paths.data / file
             if not path.exists():
                 pass
             else:
-                if filechecking == 1:
+                if filechecking == 0:
+                    self.f0b.enabled = True
+                elif filechecking == 1:
                     self.f1b.enabled = True
                 elif filechecking == 2:
                     self.f2b.enabled = True
