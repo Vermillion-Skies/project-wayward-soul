@@ -113,7 +113,7 @@ class WaywardSoul(toga.App):
         )
         self.f0b = toga.Button(
             "Autosave",
-            #on_press=self.loadsave,
+            on_press=self.loadsave,
             enabled=False,
             margin=5
         )
@@ -148,6 +148,25 @@ class WaywardSoul(toga.App):
         )
         self.verifysaves()
         self.main_window.content = self.main_box
+    def loadsave(self, widget):
+        global chapter
+        global part
+        global diagID
+        if widget.text == "Autosave":
+            path = self.paths.data / "sav00.txt"
+        elif widget.text == "File One":
+            path = self.paths.data / "sav01.txt"
+        elif widget.text == "File Two":
+            path = self.paths.data / "sav02.txt"
+        elif widget.text == "File Three":
+            path = self.paths.data / "sav03.txt"
+        fout = []
+        with open(path, "r") as file:
+            fout = [line.strip() for line in file]
+        chapter = int(fout[0])
+        part = int(fout[1])
+        diagID = int(fout[2])
+        self.rungame()
     def gamewindowdiag(self, widget=None):
         self.main_box = toga.Box(
             flex=0
@@ -312,7 +331,7 @@ class WaywardSoul(toga.App):
             pass
     def autosave(self, widget=None):
         path = self.paths.data / "sav00.txt"
-        savefile = [str(chapter), str(part)]
+        savefile = [str(chapter), str(part), str(diagID)]
         with open(path, "w") as file:
             pass
         with open(path, "w") as file:
