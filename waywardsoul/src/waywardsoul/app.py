@@ -3,14 +3,31 @@ from toga.constants import Direction
 from toga.style.pack import COLUMN, ROW
 from toga.style import Pack
 from toga.constants import Direction
+from toga.command import Group
 from pathlib import Path
 import asyncio
 class WaywardSoul(toga.App):
     def startup(self):
         self.main_box = toga.Box()
         self.main_window = toga.MainWindow(title=self.formal_name)
+        prggroup = Group(
+            "Game",
+            order=40
+        )
+        cmdsave = toga.Command(
+            self.savewindow,
+            text="Save Game",
+            tooltip="Saves your game",
+            group=prggroup,
+            section=0
+        )
+        self.commands.add(
+            cmdsave
+        )
         self.loadtitlewindow()
         self.main_window.show()
+    def savewindow(self, widget):
+        pass
     def loadtitlewindow(self, widget=None):
         self.main_box = toga.Box(
             flex=0,
