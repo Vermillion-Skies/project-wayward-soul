@@ -141,6 +141,7 @@ class WaywardSoul(toga.App):
                 on_press=self.loadtitlewindow,
                 margin=5
             ),
+            self.f0b,
             self.f1b,
             self.f2b,
             self.f3b
@@ -264,6 +265,7 @@ class WaywardSoul(toga.App):
                     elif widget.text == "Next Chapter":
                         chapter += 1
                         diagID = 0
+                        hold = self.autosave()
                         templist = gamelogic.requestscene()
                         self.buttonbox.clear()
                         self.winspeaker.text = templist[0]
@@ -308,6 +310,14 @@ class WaywardSoul(toga.App):
                     self.f3b.enabled = True
             filechecking += 1
             pass
+    def autosave(self, widget=None):
+        path = self.paths.data / "sav00.txt"
+        savefile = [str(chapter), str(part)]
+        with open(path, "w") as file:
+            pass
+        with open(path, "w") as file:
+            file.write("\n".join(savefile))
+        return "Done"
     def rungame(self, widget=None):
         self.currsce = gamelogic.requestscene()
         self.gamewindowdiag()
