@@ -122,7 +122,7 @@ class WaywardSoul(toga.App):
         )
         self.verifysaves()
         self.main_window.content = self.main_box
-    def gamewindowdiag(self):
+    def gamewindowdiag(self, widget=None):
         self.main_box = toga.Box(
             flex=0
         )
@@ -141,7 +141,7 @@ class WaywardSoul(toga.App):
                 self.winspeaker,
                 self.windiag
             ],
-            direction=ROW
+            direction=COLUMN
         )
         self.dwb1 = toga.Button(
             "Continue",
@@ -171,10 +171,10 @@ class WaywardSoul(toga.App):
         self.main_box.add(
             self.gws
         )
-        self.main_window.content(
-            self.main_box
-        )
+        self.main_window.content = self.main_box
     def gwbp(self, widget):
+        pass
+    def newgame(self, widget):
         pass
     def verifysaves(self):
         filestocheck = 3
@@ -193,39 +193,6 @@ class WaywardSoul(toga.App):
                     self.f3b.enabled = True
             filechecking += 1
             pass
-    def newgame(self, widget):
-        global currch
-        global currpt
-        global req
-        global errt
-        currch = "0"
-        req = "D"
-        self.dialoguelist = self.getdialogue()
-        print(self.dialoguelist)
-        req = "S"
-        self.speakerlist = self.getdialogue()
-        if self.dialoguelist[0] == "ERROR":
-            errt = "Error: Dialogue file doesn't exist. Maybe it's corrupted?"
-            self.errwin()
-        else:
-            if self.speakerlist[0] == "ERROR":
-                errt = "Error: Dialogue speaker file doesn't exist. Maybe it's corrupted?"
-                self.errwin()
-            else:
-                self.rungame()
-    def getdialogue(self):
-        if currch == "0":
-            if req == "D":
-                path = self.paths.app / "resources/0/0D.txt"
-            elif req == "S":
-                path = self.paths.app / "resources/0/0S.txt"
-        if path.exists():
-            with open(path, "r") as file:
-                ret = [line.strip() for line in file]
-                return ret
-        elif not path.exists():
-            x = ["ERROR"]
-            return x
     def rungame(self, widget=None):
         self.gamewindow()
     def errwin(self):
@@ -239,5 +206,7 @@ class WaywardSoul(toga.App):
             )
         )
         task.add_done_callback(quit)
+class gamelogic:
+    pass
 def main():
     return WaywardSoul()
