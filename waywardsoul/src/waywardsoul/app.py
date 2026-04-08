@@ -66,7 +66,7 @@ class WaywardSoul(toga.App):
         )
         qtb = toga.Button(
             "Quit",
-            #on_press=self.quit,
+            on_press=self.quitgame,
             margin=5,
             flex=0
         )
@@ -88,6 +88,8 @@ class WaywardSoul(toga.App):
             wholesplit
         )
         self.main_window.content = self.main_box
+    def quitgame(self, widget=None):
+        quit()
     def loadgamewindow(self, widget):
         self.main_box = toga.Box(
             direction=COLUMN
