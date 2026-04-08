@@ -189,9 +189,31 @@ class WaywardSoul(toga.App):
                     part = 0
                     templist = gamelogic.requestscene()
             else:
+                self.buttonbox.remove(
+                    self.dwb1
+                )
                 self.winspeaker.text = templist[0]
                 self.windiag.text = templist[1]
-
+                try:
+                    if templist[2] == "buttons":
+                        bta = 0
+                        bt = templist[3]
+                        while bta < bt:
+                            cur = 4 + bta
+                            self.buttonbox.add(
+                                toga.Button(
+                                    templist[cur],
+                                    on_press=self.gwbp,
+                                    margin=5
+                                )
+                            )
+                            bta += 1
+                except Exception as e:
+                    print(str(e))
+                    self.buttonbox.add(
+                        self.dwb1
+                    )
+                    pass
     def newgame(self, widget):
         global chapter
         global part
@@ -246,6 +268,8 @@ class gamelogic:
             diag = ["System", "This game is a work of fiction. Any resemblences to any person, living or dead, is completely concidental."]
         elif diagID == 2:
             diag = ["System", "Only by accepting this will you be allowed to continue into the game."]
+        elif diagID == 3:
+            diag = ["CHOICE", "Do you accept?", "buttons", 2, "Yes", "No"]
         return diag
 def main():
     return WaywardSoul()
