@@ -386,7 +386,9 @@ class gamelogic:
         return diag
     def c1p0():
         if diagID == 0:
-            diag = ["Notice", "Chapter One of the game is currently being ported to this new engine. \nPlease be patient while it is worked on.", "buttons", 1, "Return to Title"]
+            diag = ["Notice", "Chapter One of the game is currently being ported to this new engine. \nPlease be patient while it is worked on."]
+        elif diagID == 1:
+            diag = ["Notice", "Please return to the title now.", "buttons", 1, "Return to Title"]
         return diag
 def main():
     return WaywardSoul()
