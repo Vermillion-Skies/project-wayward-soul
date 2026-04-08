@@ -60,7 +60,7 @@ class WaywardSoul(toga.App):
         )
         cfb = toga.Button(
             "Config",
-            #on_press=self.configmenu,
+            on_press=self.loadconfigwindow,
             margin=5,
             flex=0
         )
@@ -90,6 +90,23 @@ class WaywardSoul(toga.App):
         self.main_window.content = self.main_box
     def quitgame(self, widget=None):
         quit()
+    def loadconfigwindow(self, widget=None):
+        self.main_box = toga.Box(
+            flex=0,
+            direction=COLUMN
+        )
+        self.main_box.add(
+            toga.Button(
+                "Back",
+                on_press=self.loadtitlewindow,
+                margin=5
+            ),
+            toga.Label(
+                "The config menu is currently in development!",
+                margin=5
+            )
+        )
+        self.main_window.content = self.main_box
     def loadgamewindow(self, widget):
         self.main_box = toga.Box(
             direction=COLUMN
