@@ -1,4 +1,5 @@
 import toga
+from toga.constants import Direction
 from toga.style.pack import COLUMN, ROW
 from toga.style import Pack
 from toga.constants import Direction
@@ -53,7 +54,7 @@ class WaywardSoul(toga.App):
         )
         lgb = toga.Button(
             "Load Game",
-            on_press=self.loadgame,
+            on_press=self.loadgamewindow,
             margin=5,
             flex=0
         )
@@ -87,7 +88,7 @@ class WaywardSoul(toga.App):
             wholesplit
         )
         self.main_window.content = self.main_box
-    def loadgame(self, widget):
+    def loadgamewindow(self, widget):
         self.main_box = toga.Box(
             direction=COLUMN
         )
@@ -121,6 +122,60 @@ class WaywardSoul(toga.App):
         )
         self.verifysaves()
         self.main_window.content = self.main_box
+    def gamewindowdiag(self):
+        self.main_box = toga.Box(
+            flex=0
+        )
+        self.winspeaker = toga.Label(
+            "Speaker",
+            margin=5,
+            flex=0
+        )
+        self.windiag = toga.Label(
+            "Dialogue",
+            margin=5,
+            flex=0
+        )
+        self.diagbox = toga.Box(
+            children=[
+                self.winspeaker,
+                self.windiag
+            ],
+            direction=ROW
+        )
+        self.dwb1 = toga.Button(
+            "Continue",
+            on_press=self.gwbp,
+            margin=5
+        )
+        self.buttonbox = toga.Box(
+            children=[
+                self.dwb1
+            ],
+            direction=COLUMN
+        )
+        self.gws = toga.SplitContainer(
+            content=[
+                (
+                    self.diagbox,
+                    9
+                ),
+                (
+                    self.buttonbox,
+                    1
+                )
+            ],
+            direction=Direction.HORIZONTAL,
+            flex=1
+        )
+        self.main_box.add(
+            self.gws
+        )
+        self.main_window.content(
+            self.main_box
+        )
+    def gwbp(self, widget):
+        pass
     def verifysaves(self):
         filestocheck = 3
         filechecking = 1
@@ -172,7 +227,7 @@ class WaywardSoul(toga.App):
             x = ["ERROR"]
             return x
     def rungame(self, widget=None):
-        pass
+        self.gamewindow()
     def errwin(self):
         errd = toga.ErrorDialog(
             "An Error Has Occurred",
@@ -184,7 +239,5 @@ class WaywardSoul(toga.App):
             )
         )
         task.add_done_callback(quit)
-        
-
 def main():
     return WaywardSoul()
