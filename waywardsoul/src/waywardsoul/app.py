@@ -3,6 +3,7 @@ from toga.style.pack import COLUMN, ROW
 from toga.style import Pack
 from toga.constants import Direction
 from pathlib import Path
+import asyncio
 class WaywardSoul(toga.App):
     def startup(self):
         self.main_box = toga.Box()
@@ -140,15 +141,50 @@ class WaywardSoul(toga.App):
     def newgame(self, widget):
         global currch
         global currpt
-        currch = "1"
-        currpt = "1"
-        self.dialoguelist = gamedialog.getdialogue()
+        global req
+        global errt
+        currch = "0"
+        req = "D"
+        self.dialoguelist = self.getdialogue()
         print(self.dialoguelist)
-class gamedialog:
-    def getdialogue():
-        if currch == "1":
-            if currpt == "1":
-                diaglist = [1, 2, 3, 4]
-                return diaglist
+        req = "S"
+        self.speakerlist = self.getdialogue()
+        if self.dialoguelist[0] == "ERROR":
+            errt = "Error: Dialogue file doesn't exist. Maybe it's corrupted?"
+            self.errwin()
+        else:
+            if self.speakerlist[0] == "ERROR":
+                errt = "Error: Dialogue speaker file doesn't exist. Maybe it's corrupted?"
+                self.errwin()
+            else:
+                self.rungame()
+    def getdialogue(self):
+        if currch == "0":
+            if req == "D":
+                path = self.paths.app / "resources/0/0D.txt"
+            elif req == "S":
+                path = self.paths.app / "resources/0/0S.txt"
+        if path.exists():
+            with open(path, "r") as file:
+                ret = [line.strip() for line in file]
+                return ret
+        elif not path.exists():
+            x = ["ERROR"]
+            return x
+    def rungame(self, widget=None):
+        pass
+    def errwin(self):
+        errd = toga.ErrorDialog(
+            "An Error Has Occurred",
+            errt
+        )
+        task = asyncio.create_task(
+            self.main_window.dialog(
+                errd
+            )
+        )
+        task.add_done_callback(quit)
+        
+
 def main():
     return WaywardSoul()
