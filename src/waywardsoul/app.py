@@ -210,19 +210,19 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         )
         self.f1b = toga.Button(
             "File One",
-            #on_press=self.loadsave,
+            on_press=self.loadsave,
             enabled=False,
             margin=5
         )
         self.f2b = toga.Button(
             "File Two",
-            #on_press=self.loadsave,
+            on_press=self.loadsave,
             enabled=False,
             margin=5
         )
         self.f3b = toga.Button(
             "File Three",
-            #on_press=self.loadsave,
+            on_press=self.loadsave,
             enabled=False,
             margin=5
         )
