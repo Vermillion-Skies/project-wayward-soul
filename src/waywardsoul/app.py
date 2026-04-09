@@ -16,7 +16,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             "Game",
             order=40
         )
-        cmdsave = toga.Command( # Adds a save command to the function group (IN DEVELOPMENT)
+        cmdsave = toga.Command( # Adds a save command to the function group
             self.savechk,
             text="Save Game",
             tooltip="Saves your game",
@@ -53,7 +53,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             self.savewindow()
         else:
             pass
-    def savewindow(self, widget=None): # Window to save the game (IN DEVELOPMENT)
+    def savewindow(self, widget=None): # Window to save the game
         global savewin
         savewin = toga.Window( # Makes a new window titled "Save"
             title="Save"
