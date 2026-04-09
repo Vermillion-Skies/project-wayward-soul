@@ -120,7 +120,8 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             toga.Label(
                 "Wayward Soul",
                 margin=5,
-                flex=0
+                flex=1,
+                text_align="center"
             )
         )
         uppersplit = toga.SplitContainer( # Creates the upper split container containing logo and title
