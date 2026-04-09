@@ -279,8 +279,21 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                     s3b.enabled = True
             fc += 1
         self.main_window.content = self.main_box
-    def saverm(self, widget):
-        pass
+    def saverm(self, widget): # Function to delete a save file
+        if widget.text == "Autosave": # Checks for the text of the button that triggered this function
+            file = self.paths.data / "sav00.txt" # Loads the OS-specific path from the Toga app data folder
+            f2d = Path(file) # Maps the absolute path into a pathlib executable function
+        elif widget.text == "File One":
+            file = self.paths.data / "sav01.txt"
+            f2d = Path(file)
+        elif widget.text == "File Two":
+            file = self.paths.data / "sav02.txt"
+            f2d = Path(file)
+        elif widget.text == "File Three":
+            file = self.paths.data / "sav03.txt"
+            f2d = Path(file)
+        f2d.unlink(missing_ok=True)
+        widget.enabled=False
     def creditswin(self):
         pass
     def sofinfwin(self):
