@@ -218,7 +218,47 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             self.sofinfwin()
         elif widget.text == "Back":
             self.loadtitlewindow()
-    def savemanwin(self):
+    def savemanwin(self): # Window for save management
+        self.main_box = toga.Box( # Creates main box to contain buttons
+            direction=COLUMN
+        )
+        self.main_box.add(
+            toga.Button( # Button to return to the config menu
+                "Back",
+                on_press=self.loadconfigwindow,
+                margin=5
+            ),
+            toga.Label( # Label to be above buttons
+                "Erase save (CANNOT BE UNDONE)",
+                margin=5,
+            ),
+            toga.Button( # Buttons to call to remove the labeled saves
+                "Autosave",
+                on_press=self.saverm,
+                margin=5,
+                enabled=False
+            ),
+            toga.Button( 
+                "File One",
+                on_press=self.saverm,
+                margin=5,
+                enabled=False
+            ),
+            toga.Button(
+                "File Two",
+                on_press=self.saverm,
+                margin=5,
+                enabled=False
+            ),
+            toga.Button(
+                "File Three",
+                on_press=self.saverm,
+                margin=5,
+                enabled=False
+            )
+        )
+        self.main_window.content = self.main_box
+    def saverm(self, widget):
         pass
     def creditswin(self):
         pass
