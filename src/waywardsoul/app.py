@@ -28,9 +28,31 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         )
         self.loadtitlewindow() # Loads the contents of the title screen window
         self.main_window.show() # Shows the window
-    def savechk(self, widget): # Function to check if you're at a point where saving is allowed (IN DEVELOPMENT, CURRENTLY DOESN'T WORK)
-        print("This shit ain't functional yet")
-        #self.savewindow()
+    def savechk(self, widget): # Function to check if you're at a point where saving is allowed
+        cansave = 0 # Defaults value to 0, won't open save window if value is still 0
+        if chapter == "n":
+            pass
+        elif chapter == 0:
+            if part == 0:
+                if diagID == 3:
+                    pass
+                elif diagID == 6:
+                    pass
+                elif diagID == 9:
+                    pass
+                else:
+                    cansave = 1
+                    pass
+                pass
+            pass
+        elif chapter == 1:
+            if part == 0:
+                pass
+            pass
+        if cansave == 1:
+            self.savewindow()
+        else:
+            pass
     def savewindow(self, widget=None): # Window to save the game (IN DEVELOPMENT)
         global savewin
         savewin = toga.Window( # Makes a new window titled "Save"
@@ -49,6 +71,8 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
     def closesave(self, widget): # Function to close the save window
         savewin.close()
     def loadtitlewindow(self, widget=None): # Main title window
+        global chapter
+        chapter = "n" # Sets chapter to an empty value to prevent saving game on title screen
         self.main_box = toga.Box( # Box to contain all contents defined in this function
             flex=0,
         )
