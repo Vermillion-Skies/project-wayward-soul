@@ -9,6 +9,7 @@ import asyncio
 class swinfo: # Class containing software info variables
     ver = "v1.5.2"
     patch = "0"
+    date = "09 Apr 2026"
 class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures, and app runtime logic
     def startup(self): # Function run at startup of the program
         self.main_box = toga.Box() # Creates a content box
@@ -315,8 +316,11 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             )
         )
         self.main_window.content = self.main_box
-    def sofinfwin(self):
-        pass
+    def sofinfwin(self): # Window to show current software version info
+        self.main_box = toga.Box(
+            direction=COLUMN
+        )
+
     def loadgamewindow(self, widget): # Window where loadable saves are shown
         self.main_box = toga.Box( # Main box to contain save file buttons
             direction=COLUMN
