@@ -94,7 +94,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             path = self.paths.data / "sav02.txt"
         elif widget.text == "File Three":
             path = self.paths.data / "sav03.txt"
-        savefile = [str(chapter), str(part), str(diagID)]
+        savefile = [str(swinfo.savever), str(chapter), str(part), str(diagID)]
         with open(path, "w") as file:
             pass
         with open(path, "w") as file:
