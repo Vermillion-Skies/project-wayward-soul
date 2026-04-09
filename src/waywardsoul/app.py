@@ -80,7 +80,25 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             ]
         )
         savewin.show()
-    def closesave(self, widget): # Function to close the save window
+    def savegame(self, widget=None): # Function to save variables to a selected save file
+        if widget.text == "File One":
+            path = self.paths.data / "sav01.txt"
+        elif widget.text == "File Two":
+            path = self.paths.data / "sav02.txt"
+        elif widget.text == "File Three":
+            path = self.paths.data / "sav03.txt"
+        else: # Else is only run if the game is intending to autosave
+            path = self.paths.data / "sav00.txt"
+        savefile = [str(chapter), str(part), str(diagID)]
+        with open(path, "w") as file:
+            pass
+        with open(path, "w") as file:
+            file.write("\n".join(savefile))
+        if widget == None:
+            return "Done"
+        else:
+            self.closesave()
+    def closesave(self, widget=None): # Function to close the save window
         savewin.close()
     def loadtitlewindow(self, widget=None): # Main title window
         global chapter
