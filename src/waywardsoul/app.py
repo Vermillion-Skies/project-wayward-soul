@@ -187,7 +187,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         self.main_window.content = self.main_box # Adds the main box to the window, overwriting any previous window contents if they exist
     def quitgame(self, widget=None): # Function that quits the game
         quit()
-    def loadconfigwindow(self, widget=None): # Window with game configuration options (IN DEVELOPMENT)
+    def loadconfigwindow(self, widget=None): # Window with game configuration options
         self.main_box = toga.Box( # Main box to contain content defined in this function
             flex=0,
             direction=COLUMN
