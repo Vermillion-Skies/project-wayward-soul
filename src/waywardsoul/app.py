@@ -8,7 +8,7 @@ from pathlib import Path
 import asyncio
 class swinfo: # Class containing software info variables
     ver = "1.5.2"
-    patch = "1"
+    patch = "2"
     savever = "1.0"
     date = "09 Apr 2026"
 class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures, and app runtime logic
