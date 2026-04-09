@@ -382,21 +382,21 @@ class WaywardSoul(toga.App):
             )
         )
         task.add_done_callback(quit)
-class gamelogic:
-    def requestscene():
+class gamelogic: # Class containing logic for routing process to the correct chapter for the scene requested
+    def requestscene(): # Function to return scene data
         global chapter
         if chapter == 0:
             retlist = chapter0.partch()
         elif chapter == 1:
             retlist = chapter1.partch()
         return retlist
-class chapter0:
-    def partch():
+class chapter0: # Class containing logic and dialogue for chapter 0 of the game
+    def partch(): # Function to select the right part to grab data from based on global part variable
         global part
         if part == 0:
             toret = chapter0.part0()
         return toret
-    def part0():
+    def part0(): # Function containing all dialogue info for part 0 of chapter 0
         if diagID == 0:
             diag = ["System", "Welcome, adventurer, to the game."]
         elif diagID == 1:
@@ -418,17 +418,17 @@ class chapter0:
         elif diagID == 9:
             diag = ["System", "Return to the plane of souls, traveller.", "buttons", 1, "Return to Title"]
         return diag
-class chapter1:
-    def partch():
+class chapter1: # Class containing logic and dialogue for chapter 1 of the game
+    def partch(): # Function to select the right part to grab data from based on the global part variable
         global part
         if part == 0:
             toret = chapter1.part0()
         return toret
-    def part0():
+    def part0(): # Function containing all dialogue info for part 0 of chapter 1
         if diagID == 0:
             diag = ["Notice", "Chapter One of the game is currently being ported to this new engine. \nPlease be patient while it is worked on."]
         elif diagID == 1:
             diag = ["Notice", "Please return to the title now.", "buttons", 1, "Return to Title"]
         return diag
-def main():
+def main(): # Function called by __main__.py that starts running the app
     return WaywardSoul()
