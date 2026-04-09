@@ -211,13 +211,19 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         self.main_window.content = self.main_box
     def configbutton(self, widget): # Handler for pressing a button in the config menu
         if widget.text == "Save Management":
-            self.savemanage()
+            self.savemanwin()
         elif widget.text == "Credits":
             self.creditswin()
         elif widget.text == "Software Information":
-            self.softwareinfo()
+            self.sofinfwin()
         elif widget.text == "Back":
             self.loadtitlewindow()
+    def savemanwin(self):
+        pass
+    def creditswin(self):
+        pass
+    def sofinfwin(self):
+        pass
     def loadgamewindow(self, widget): # Window where loadable saves are shown
         self.main_box = toga.Box( # Main box to contain save file buttons
             direction=COLUMN
