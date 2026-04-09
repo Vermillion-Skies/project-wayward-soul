@@ -294,8 +294,23 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             f2d = Path(file)
         f2d.unlink(missing_ok=True)
         widget.enabled=False
-    def creditswin(self):
-        pass
+    def creditswin(self): # Window for the game's credits
+        self.main_box = toga.Box( # Defines empty box to contain credits content
+            direction=COLUMN,
+        )
+        self.main_box.add( # Adds content to the main box
+            toga.Button(
+                "Back",
+                on_press=self.loadconfigwindow,
+                margin=5
+            ),
+            toga.Label(
+                "Project Wayward Soul \nDeveloped by Vermillion_Skies \nWritten in Python \nPackaged with Briefcase by Beeware \n2026 Vermillion-Skies",
+                margin=5,
+                text_align="center"
+            )
+        )
+        self.main_window.content = self.main_box
     def sofinfwin(self):
         pass
     def loadgamewindow(self, widget): # Window where loadable saves are shown
