@@ -81,14 +81,14 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         )
         savewin.show()
     def savegame(self, widget=None): # Function to save variables to a selected save file
-        if widget.text == "File One":
+        if widget == None:
+            path = self.paths.data / "sav00.txt"
+        elif widget.text == "File One":
             path = self.paths.data / "sav01.txt"
         elif widget.text == "File Two":
             path = self.paths.data / "sav02.txt"
         elif widget.text == "File Three":
             path = self.paths.data / "sav03.txt"
-        else: # Else is only run if the game is intending to autosave
-            path = self.paths.data / "sav00.txt"
         savefile = [str(chapter), str(part), str(diagID)]
         with open(path, "w") as file:
             pass
@@ -375,7 +375,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                     elif widget.text == "Next Chapter": # Next chapter button from end of chapter 0 (yes button pressed)
                         chapter += 1
                         diagID = 0
-                        hold = self.autosave()
+                        hold = self.savegame()
                         templist = gamelogic.requestscene()
                         self.buttonbox.clear()
                         self.winspeaker.text = templist[0]
