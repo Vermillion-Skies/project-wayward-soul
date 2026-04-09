@@ -325,11 +325,7 @@ class WaywardSoul(toga.App):
                         self.winspeaker.text = templist[0]
                         self.windiag.text = templist[1]
                         self.buttonbox.add(
-                            toga.Button(
-                                templist[4],
-                                on_press=self.gwbp,
-                                margin=5
-                            )
+                            self.dwb1
                         )
                     elif widget.text == "Return to Title":
                         self.loadtitlewindow()
@@ -389,15 +385,18 @@ class WaywardSoul(toga.App):
 class gamelogic:
     def requestscene():
         global chapter
-        global part
         if chapter == 0:
-            if part == 0:
-                retlist = gamelogic.c0p0()
+            retlist = chapter0.partch()
         elif chapter == 1:
-            if part == 0:
-                retlist = gamelogic.c1p0()
+            retlist = chapter1.partch()
         return retlist
-    def c0p0():
+class chapter0:
+    def partch():
+        global part
+        if part == 0:
+            toret = chapter0.part0()
+        return toret
+    def part0():
         if diagID == 0:
             diag = ["System", "Welcome, adventurer, to the game."]
         elif diagID == 1:
@@ -419,7 +418,13 @@ class gamelogic:
         elif diagID == 9:
             diag = ["System", "Return to the plane of souls, traveller.", "buttons", 1, "Return to Title"]
         return diag
-    def c1p0():
+class chapter1:
+    def partch():
+        global part
+        if part == 0:
+            toret = chapter1.part0()
+        return toret
+    def part0():
         if diagID == 0:
             diag = ["Notice", "Chapter One of the game is currently being ported to this new engine. \nPlease be patient while it is worked on."]
         elif diagID == 1:
