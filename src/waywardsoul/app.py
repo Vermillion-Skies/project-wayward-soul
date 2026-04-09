@@ -6,6 +6,9 @@ from toga.constants import Direction
 from toga.command import Group
 from pathlib import Path
 import asyncio
+class swinfo: # Class containing software info variables
+    ver = "v1.5.2"
+    patch = "0"
 class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures, and app runtime logic
     def startup(self): # Function run at startup of the program
         self.main_box = toga.Box() # Creates a content box
