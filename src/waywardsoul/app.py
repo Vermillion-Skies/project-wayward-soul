@@ -16,7 +16,7 @@ class WaywardSoul(toga.App):
         )
         cmdsave = toga.Command(
             self.savechk,
-            text="Save Game",
+            text="Save Game (WIP)",
             tooltip="Saves your game",
             group=prggroup,
             section=0
@@ -27,7 +27,8 @@ class WaywardSoul(toga.App):
         self.loadtitlewindow()
         self.main_window.show()
     def savechk(self, widget):
-        self.savewindow()
+        print("This shit ain't functional yet")
+        #self.savewindow()
     def savewindow(self, widget=None):
         global savewin
         savewin = toga.Window(
