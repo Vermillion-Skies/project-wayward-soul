@@ -222,6 +222,30 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         self.main_box = toga.Box( # Creates main box to contain buttons
             direction=COLUMN
         )
+        asb = toga.Button( # Buttons representing each save file
+            "Autosave",
+            on_press=self.saverm,
+            margin=5,
+            enabled=False
+        )
+        s1b = toga.Button(
+            "File One",
+            on_press=self.saverm,
+            margin=5,
+            enabled=False
+        )
+        s2b = toga.Button(
+            "File Two",
+            on_press=self.saverm,
+            margin=5,
+            enabled=False
+        )
+        s3b = toga.Button(
+            "File Three",
+            on_press=self.saverm,
+            margin=5,
+            enabled=False
+        )
         self.main_box.add(
             toga.Button( # Button to return to the config menu
                 "Back",
@@ -232,31 +256,28 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                 "Erase save (CANNOT BE UNDONE)",
                 margin=5,
             ),
-            toga.Button( # Buttons to call to remove the labeled saves
-                "Autosave",
-                on_press=self.saverm,
-                margin=5,
-                enabled=False
-            ),
-            toga.Button( 
-                "File One",
-                on_press=self.saverm,
-                margin=5,
-                enabled=False
-            ),
-            toga.Button(
-                "File Two",
-                on_press=self.saverm,
-                margin=5,
-                enabled=False
-            ),
-            toga.Button(
-                "File Three",
-                on_press=self.saverm,
-                margin=5,
-                enabled=False
-            )
+            asb, # Adds previously defined buttons to box
+            s1b,
+            s2b,
+            s3b
         )
+        f2c = 3 # Files to check
+        fc = 0 # File checking
+        while fc<= f2c: # Checks saves folder for files. If file exists, enables deletion button
+            file = "sav0" + str(fc) + ".txt"
+            path = self.paths.data / file
+            if not path.exists():
+                pass
+            else:
+                if fc == 0:
+                    asb.enabled = True
+                elif fc == 1:
+                    s1b.enabled = True
+                elif fc == 2:
+                    s2b.enabled = True
+                elif fc == 3:
+                    s3b.enabled = True
+            fc += 1
         self.main_window.content = self.main_box
     def saverm(self, widget):
         pass
