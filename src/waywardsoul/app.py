@@ -192,6 +192,21 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                 on_press=self.loadtitlewindow,
                 margin=5
             ),
+            toga.Button( # Button to load save management window
+                "Save Management",
+                on_press=self.configbutton,
+                margin=5
+            ),
+            toga.Button( # Button to load development credits
+                "Credits",
+                on_press=self.configbutton,
+                margin=5
+            ),
+            toga.Button( # Button to load information about current software version
+                "Software information",
+                on_press=self.configbutton,
+                margin=5
+            )
         )
         self.main_window.content = self.main_box
     def loadgamewindow(self, widget): # Window where loadable saves are shown
