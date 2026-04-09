@@ -8,3 +8,14 @@
 
 * Added initial dialogue for prologue
 * Added all initial title screen functions
+
+## 1.5.3 (09 Apr 2026)
+
+* Added ability to save/load files
+* Added save data management to config menu
+* Added credits to config menu
+* Added software info to config menu
+* Added title screen art
+* Added check for save data version
+* Updated save data version to 1.0
+* Various bug fixes and optimizations
