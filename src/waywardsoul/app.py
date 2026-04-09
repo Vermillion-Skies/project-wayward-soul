@@ -416,14 +416,6 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                     self.f3b.enabled = True
             filechecking += 1
             pass
-    def autosave(self, widget=None): # Function to save progress-based variables to sav00.txt. Ran upon completion of a part or a chapter
-        path = self.paths.data / "sav00.txt"
-        savefile = [str(chapter), str(part), str(diagID)]
-        with open(path, "w") as file:
-            pass
-        with open(path, "w") as file:
-            file.write("\n".join(savefile))
-        return "Done"
     def rungame(self, widget=None): # Function to fetch the current scene when called (either from a loaded save or a new game) and then loading the game dialogue window
         self.currsce = gamelogic.requestscene()
         self.gamewindowdiag()
