@@ -192,10 +192,6 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                 on_press=self.loadtitlewindow,
                 margin=5
             ),
-            toga.Label( # Temporary label while I finish making the config menu
-                "The config menu is currently in development!",
-                margin=5
-            )
         )
         self.main_window.content = self.main_box
     def loadgamewindow(self, widget): # Window where loadable saves are shown
