@@ -7,8 +7,8 @@ from toga.command import Group
 from pathlib import Path
 import asyncio
 class swinfo: # Class containing software info variables
-    ver = "v1.5.2"
-    patch = "0"
+    ver = "1.5.2"
+    patch = "1"
     date = "09 Apr 2026"
 class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures, and app runtime logic
     def startup(self): # Function run at startup of the program
@@ -317,10 +317,21 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         )
         self.main_window.content = self.main_box
     def sofinfwin(self): # Window to show current software version info
-        self.main_box = toga.Box(
+        self.main_box = toga.Box( # Defines empty box to contain content
             direction=COLUMN
         )
-
+        self.main_box.add(
+            toga.Button(
+                "Back",
+                on_press=self.loadconfigwindow,
+                margin=5
+            ),
+            toga.Label(
+                "Version " + swinfo.ver + "\nPatch: " + swinfo.patch + "\nPatch date: " + swinfo.date,
+                text_align="center"
+            )
+        )
+        self.main_window.content = self.main_box
     def loadgamewindow(self, widget): # Window where loadable saves are shown
         self.main_box = toga.Box( # Main box to contain save file buttons
             direction=COLUMN
