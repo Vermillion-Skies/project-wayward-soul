@@ -6,7 +6,7 @@ from toga.constants import Direction
 from toga.command import Group
 from pathlib import Path
 import asyncio
-class WaywardSoul(toga.App):
+class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures, and app runtime logic
     def startup(self):
         self.main_box = toga.Box()
         self.main_window = toga.MainWindow(title=self.formal_name)
@@ -371,7 +371,7 @@ class WaywardSoul(toga.App):
     def rungame(self, widget=None):
         self.currsce = gamelogic.requestscene()
         self.gamewindowdiag()
-    def errwin(self):
+    def errwin(self): # Function to show an error window upon a fatal exception, closing the program upon confirming the error
         errd = toga.ErrorDialog(
             "An Error Has Occurred",
             errt
