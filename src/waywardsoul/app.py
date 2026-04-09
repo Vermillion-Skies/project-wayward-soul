@@ -18,7 +18,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         )
         cmdsave = toga.Command( # Adds a save command to the function group (IN DEVELOPMENT)
             self.savechk,
-            text="Save Game (WIP)",
+            text="Save Game",
             tooltip="Saves your game",
             group=prggroup,
             section=0
@@ -64,6 +64,18 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                 toga.Button( # Adds a close button
                     "Close",
                     on_press=self.closesave
+                ),
+                toga.Button(
+                    "File One",
+                    on_press=self.savegame
+                ),
+                toga.Button(
+                    "File Two",
+                    on_press=self.savegame
+                ),
+                toga.Button(
+                    "File Three",
+                    on_press=self.savegame
                 )
             ]
         )
