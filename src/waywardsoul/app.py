@@ -374,7 +374,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         )
         self.verifysaves() # Verifies existence of save data files
         self.main_window.content = self.main_box # Overwrites main window content with content defined in this function
-    def loadsave(self, widget): # Function to read data from a selected save file and save its properties to program variables
+    async def loadsave(self, widget): # Function to read data from a selected save file and save its properties to program variables
         global chapter
         global part
         global diagID
@@ -389,10 +389,13 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         fout = [] # Defines an empty list for save file contents
         with open(path, "r") as file: # Opens the file in read-only mode
             fout = [line.strip() for line in file] # Saves each line of the save as a different list item
-        chapter = int(fout[0]) # Sets chapter, part, and diag ID to their properties in the loaded save
-        part = int(fout[1])
-        diagID = int(fout[2])
-        self.rungame() # Starts the game
+        if fout[0] == swinfo.savever: # Checks if the save file is on the correct version
+            chapter = int(fout[1]) # Sets chapter, part, and diag ID to their properties in the loaded save
+            part = int(fout[2])
+            diagID = int(fout[3])
+            self.rungame() # Starts the game
+        else:
+            pass
     def gamewindowdiag(self, widget=None): # Function to make game window for dialogue scenes
         self.main_box = toga.Box( # Box to contain assets defined in this function
             flex=0
