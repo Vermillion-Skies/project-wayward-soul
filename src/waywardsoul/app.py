@@ -288,11 +288,22 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             toga.Label( # Label to be above buttons
                 "Erase save (CANNOT BE UNDONE)",
                 margin=5,
+                text_align="center"
             ),
             asb, # Adds previously defined buttons to box
             s1b,
             s2b,
-            s3b
+            s3b,
+            toga.Label(
+                "Save Data update tool",
+                margin=5,
+                text_align="center"
+            ),
+            toga.Button(
+                "Run updater (may take time)",
+                on_press=self.sdup,
+                margin=5
+            )
         )
         f2c = 3 # Files to check
         fc = 0 # File checking
@@ -327,6 +338,8 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             f2d = Path(file)
         f2d.unlink(missing_ok=True)
         widget.enabled=False
+    def sdup(self, widget): # Function to update save data version to needed version, if needed
+        pass
     def creditswin(self): # Window for the game's credits
         self.main_box = toga.Box( # Defines empty box to contain credits content
             direction=COLUMN,
