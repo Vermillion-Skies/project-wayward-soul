@@ -25,10 +25,11 @@ from toga.command import Group
 from pathlib import Path
 import asyncio
 class swinfo: # Class containing software info variables
-    ver = "1.5.3"
-    patch = "1"
+    ver = "1.5.4"
+    patch = "0"
     savever = "1.0"
-    date = "09 Apr 2026"
+    expectedsavelen = 4
+    date = "10 Apr 2026"
 class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures, and app runtime logic
     def startup(self): # Function run at startup of the program
         self.main_box = toga.Box() # Creates a content box
@@ -287,11 +288,22 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             toga.Label( # Label to be above buttons
                 "Erase save (CANNOT BE UNDONE)",
                 margin=5,
+                text_align="center"
             ),
             asb, # Adds previously defined buttons to box
             s1b,
             s2b,
-            s3b
+            s3b,
+            toga.Label(
+                "Save Data update tool",
+                margin=5,
+                text_align="center"
+            ),
+            toga.Button(
+                "Run updater (may take time)",
+                on_press=self.sdup,
+                margin=5
+            )
         )
         f2c = 3 # Files to check
         fc = 0 # File checking
@@ -326,6 +338,37 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             f2d = Path(file)
         f2d.unlink(missing_ok=True)
         widget.enabled=False
+    async def sdup(self, widget): # Function to update save data version to needed version, if needed
+        f2u = 3 # Files to update (0-3)
+        fcu = 0 # File currently updating
+        while fcu <= f2u:
+            sfile = "sav0" + str(fcu) + ".txt" # Sets file to update
+            path = self.paths.data / sfile # Sets path of the file
+            fout = [] # Creates empty list for file content
+            if not path.exists(): # Skips over the file if it doesn't exist
+                pass
+            else:
+                with open(path, "r") as file: # Opens the file and obtains its contents
+                    fout = [line.strip() for line in file]
+                if fout[0] == swinfo.savever: # If the save is the correct version, skips over the file
+                    pass
+                else: # Otherwise, adds any missing lines to the file
+                    while len(fout) < swinfo.expectedsavelen:
+                        fout.append("NULL")
+                    fout[0] = swinfo.savever # Changes file version to current version in the code
+                    with open(path, "w") as file:
+                        pass
+                    with open(path, "w") as file:
+                        file.write("\n".join(fout))
+                        pass
+                    pass
+                pass
+            fcu += 1 # Increments the file to check by one
+        diag = toga.InfoDialog( # Dialog to alert that the procedure passed
+            "SYSTEM",
+            "Operation completed. If you have any issues loading an updated save, please report it on github"
+        )
+        await self.main_window.dialog(diag)
     def creditswin(self): # Window for the game's credits
         self.main_box = toga.Box( # Defines empty box to contain credits content
             direction=COLUMN,
@@ -423,8 +466,9 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         else:
             diag = toga.InfoDialog( # Shows an info dialog if the save data file is the wrong version.
                 "Notice",
-                "Your save data is not the correct version. The game will not load."
+                "Your save data is not the correct version. The game will not load. Please run the save file update tool in config > Save Management"
             )
+            await self.main_window.dialog(diag)
     def gamewindowdiag(self, widget=None): # Function to make game window for dialogue scenes
         self.main_box = toga.Box( # Box to contain assets defined in this function
             flex=0
