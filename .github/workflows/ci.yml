@@ -24,7 +24,7 @@ jobs:
    strategy:
      fail-fast: false
      matrix:
-       target: [ "Windows", "macOS", "Ubuntu-24.04", "Fedora-40", "iOS", "Android"]
+       target: [ "Windows", "macOS", "Flatpak", "Ubuntu-24.04", "Fedora-40", "iOS", "Android"]
        include:
          - target: "Windows"
            output-format: "app"
@@ -33,7 +33,14 @@ jobs:
          - target: "macOS"
            output-format: "app"
            runs-on: "macos-latest"
-
+           
+         - target: "Flatpak"
+           platform: "Linux"
+           output-format: "Flatpak"
+           runs-on: "ubuntu-latest"
+           pre-command: "sudo apt update && sudo apt -y install flatpak flatpak-builder"
+           briefcase-run-prefix: "xvfb-run"
+         
          - target: "Ubuntu-24.04"
            platform: "Linux"
            output-format: "system"
