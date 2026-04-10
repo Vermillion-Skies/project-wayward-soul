@@ -466,8 +466,9 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         else:
             diag = toga.InfoDialog( # Shows an info dialog if the save data file is the wrong version.
                 "Notice",
-                "Your save data is not the correct version. The game will not load."
+                "Your save data is not the correct version. The game will not load. Please run the save file update tool in config > Save Management"
             )
+            await self.main_window.dialog(diag)
     def gamewindowdiag(self, widget=None): # Function to make game window for dialogue scenes
         self.main_box = toga.Box( # Box to contain assets defined in this function
             flex=0
