@@ -342,20 +342,20 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         f2u = 3 # Files to update (0-3)
         fcu = 0 # File currently updating
         while fcu <= f2u:
-            sfile = "sav0" + str(fcu) + ".txt"
-            path = self.paths.data / sfile
-            fout = []
-            if not path.exists():
+            sfile = "sav0" + str(fcu) + ".txt" # Sets file to update
+            path = self.paths.data / sfile # Sets path of the file
+            fout = [] # Creates empty list for file content
+            if not path.exists(): # Skips over the file if it doesn't exist
                 pass
             else:
-                with open(path, "r") as file:
+                with open(path, "r") as file: # Opens the file and obtains its contents
                     fout = [line.strip() for line in file]
-                if fout[0] == swinfo.savever:
+                if fout[0] == swinfo.savever: # If the save is the correct version, skips over the file
                     pass
-                else:
+                else: # Otherwise, adds any missing lines to the file
                     while len(fout) < swinfo.expectedsavelen:
                         fout.append("NULL")
-                    fout[0] = swinfo.savever
+                    fout[0] = swinfo.savever # Changes file version to current version in the code
                     with open(path, "w") as file:
                         pass
                     with open(path, "w") as file:
@@ -363,8 +363,8 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                         pass
                     pass
                 pass
-            fcu += 1
-        diag = toga.InfoDialog(
+            fcu += 1 # Increments the file to check by one
+        diag = toga.InfoDialog( # Dialog to alert that the procedure passed
             "SYSTEM",
             "Operation completed. If you have any issues loading an updated save, please report it on github"
         )
