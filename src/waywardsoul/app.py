@@ -29,7 +29,7 @@ class swinfo: # Class containing software info variables
     patch = "0"
     savever = "1.0"
     expectedsavelen = 4
-    date = "09 Apr 2026"
+    date = "10 Apr 2026"
 class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures, and app runtime logic
     def startup(self): # Function run at startup of the program
         self.main_box = toga.Box() # Creates a content box
