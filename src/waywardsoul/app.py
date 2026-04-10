@@ -26,7 +26,7 @@ from pathlib import Path
 import asyncio
 class swinfo: # Class containing software info variables
     ver = "1.5.3"
-    patch = "0"
+    patch = "1"
     savever = "1.0"
     date = "09 Apr 2026"
 class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures, and app runtime logic
@@ -212,7 +212,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         )
         self.main_window.content = self.main_box # Adds the main box to the window, overwriting any previous window contents if they exist
     def quitgame(self, widget=None): # Function that quits the game
-        quit()
+        self.main_window.close()
     def loadconfigwindow(self, widget=None): # Window with game configuration options
         self.main_box = toga.Box( # Main box to contain content defined in this function
             flex=0,
@@ -596,7 +596,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                 errd
             )
         )
-        task.add_done_callback(quit)
+        task.add_done_callback(self.main_window.close())
 class gamelogic: # Class containing logic for routing process to the correct chapter for the scene requested
     def requestscene(): # Function to return scene data
         global chapter
