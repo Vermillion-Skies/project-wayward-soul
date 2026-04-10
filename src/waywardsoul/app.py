@@ -25,7 +25,7 @@ from toga.command import Group
 from pathlib import Path
 import asyncio
 class swinfo: # Class containing software info variables
-    ver = "1.5.4"
+    ver = "2.0.0"
     patch = "0"
     savever = "1.0"
     expectedsavelen = 4
