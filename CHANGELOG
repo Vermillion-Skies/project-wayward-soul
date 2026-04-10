@@ -19,3 +19,8 @@
 * Added check for save data version
 * Updated save data version to 1.0
 * Various bug fixes and optimizations
+
+## 1.5.4 (10 Apr 2026)
+
+* Added procedure to update save file to correct version
+* Added error prompt when attempting to load a file with a version mismatch
