@@ -338,8 +338,37 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             f2d = Path(file)
         f2d.unlink(missing_ok=True)
         widget.enabled=False
-    def sdup(self, widget): # Function to update save data version to needed version, if needed
-        pass
+    async def sdup(self, widget): # Function to update save data version to needed version, if needed
+        f2u = 3 # Files to update (0-3)
+        fcu = 0 # File currently updating
+        while fcu <= f2u:
+            sfile = "sav0" + str(fcu) + ".txt"
+            path = self.paths.data / sfile
+            fout = []
+            if not path.exists():
+                pass
+            else:
+                with open(path, "r") as file:
+                    fout = [line.strip() for line in file]
+                if fout[0] == swinfo.savever:
+                    pass
+                else:
+                    while len(fout) < swinfo.expectedsavelen:
+                        fout.append("NULL")
+                    fout[0] = swinfo.savever
+                    with open(path, "w") as file:
+                        pass
+                    with open(path, "w") as file:
+                        file.write("\n".join(fout))
+                        pass
+                    pass
+                pass
+            fcu += 1
+        diag = toga.InfoDialog(
+            "SYSTEM",
+            "Operation completed. If you have any issues loading an updated save, please report it on github"
+        )
+        await self.main_window.dialog(diag)
     def creditswin(self): # Window for the game's credits
         self.main_box = toga.Box( # Defines empty box to contain credits content
             direction=COLUMN,
