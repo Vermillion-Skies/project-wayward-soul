@@ -25,9 +25,10 @@ from toga.command import Group
 from pathlib import Path
 import asyncio
 class swinfo: # Class containing software info variables
-    ver = "1.5.3"
-    patch = "1"
+    ver = "1.5.4"
+    patch = "0"
     savever = "1.0"
+    expectedsavelen = 4
     date = "09 Apr 2026"
 class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures, and app runtime logic
     def startup(self): # Function run at startup of the program
