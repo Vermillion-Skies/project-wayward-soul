@@ -36,6 +36,11 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         self.main_window = toga.MainWindow( # Creates the main window
             title=self.formal_name
         )
+        self.definemenu()
+        self.commands.clear()
+        self.startagree() # Loads the contents of the title screen window
+        self.main_window.show() # Shows the window
+    def definemenu(self):
         self.cmdgroup = Group( # Creates a group of functions for the titlebar
             "Menu",
             order=40
@@ -68,9 +73,6 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             group=self.cmdgroup,
             section=40
         )
-        self.commands.clear()
-        self.startagree() # Loads the contents of the title screen window
-        self.main_window.show() # Shows the window
     def openmenu(self, widget=None):
         self.main_window.toolbar.clear()
         self.main_window.toolbar.add(
