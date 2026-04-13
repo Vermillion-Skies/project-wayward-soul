@@ -50,8 +50,28 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         self.commands.add( # Adds commands to the previously defined group
             cmdsave
         )
-        self.loadtitlewindow() # Loads the contents of the title screen window
+        self.startagree() # Loads the contents of the title screen window
         self.main_window.show() # Shows the window
+    def startagree(self): # Loads a window talking about the content of the game
+        global chapter
+        chapter ="n" # Sets chapter to an empty value
+        self.main_box = toga.Box( # Creates the empty content box
+            direction=COLUMN
+        )
+        self.main_box.add(
+            toga.Label(
+                "This game contains\nViolent Themes\nLanguage\nPlayer discretion is advised.",
+                margin=5,
+                flex=1,
+                text_align='center'
+            ),
+            toga.Button(
+                "Okay",
+                on_press=self.loadtitlewindow,
+                margin=5
+            )
+        )
+        self.main_window.content = self.main_box
     def savechk(self, widget): # Function to check if you're at a point where saving is allowed
         cansave = 0 # Defaults value to 0, won't open save window if value is still 0
         if chapter == "n":
