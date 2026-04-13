@@ -5,9 +5,9 @@ on:
    reason:
     description: 'Reason for manual run'
     required: false
- push:
-   branches:
-     - main  # update to match the default branch for your repo
+ #push:
+   #branches:
+     #- main  # update to match the default branch for your repo
 
 # Cancel active CI runs for a PR before starting another run
 concurrency:
