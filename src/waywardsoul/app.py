@@ -770,7 +770,6 @@ class chapter1: # Class containing logic and dialogue for chapter 1 of the game
             diag = ["SCENE", "In front of you is a strange individual with green hair."]
         elif diagID == 7:
             diag = ["You", "...where am I?"]
-        
         return diag
 def main(): # Function called by __main__.py that starts running the app
     return WaywardSoul()
