@@ -40,7 +40,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             "Menu",
             order=40
         )
-        cmdsave = toga.Command( # Adds a save command to the function group
+        self.cmdsave = toga.Command( # Adds a save command to the function group
             self.savechk,
             text="Save Game",
             tooltip="Saves your game",
@@ -662,6 +662,9 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             filechecking += 1
             pass
     def rungame(self, widget=None): # Function to fetch the current scene when called (either from a loaded save or a new game) and then loading the game dialogue window
+        self.main_window.toolbar.add(
+            self.cmdsave
+        )
         self.currsce = gamelogic.requestscene()
         self.gamewindowdiag()
     def errwin(self): # Function to show an error window upon a fatal exception, closing the program upon confirming the error
