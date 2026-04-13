@@ -40,16 +40,49 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             "Menu",
             order=40
         )
-        self.cmdsave = toga.Command( # Adds a save command to the function group
+        self.cmdmenu = toga.Command( # Adds a save command to the function group
+            self.openmenu,
+            text="Menu",
+            tooltip="Opens game menu",
+            group=self.cmdgroup,
+            section=0
+        )
+        self.cmdsave = toga.Command(
             self.savechk,
-            text="Save Game",
+            text="Save",
             tooltip="Saves your game",
             group=self.cmdgroup,
             section=0
         )
+        self.cmdclose = toga.Command(
+            self.closemenu,
+            text="Close Menu",
+            tooltip="Closes command menu",
+            group=self.cmdgroup,
+            section=39
+        )
+        self.cmdquit = toga.Command(
+            self.loadtitlewindow,
+            text="Return to Title",
+            tooltip="Closes current session and returns to title screen",
+            group=self.cmdgroup,
+            section=40
+        )
         self.commands.clear()
         self.startagree() # Loads the contents of the title screen window
         self.main_window.show() # Shows the window
+    def openmenu(self, widget=None):
+        self.main_window.toolbar.clear()
+        self.main_window.toolbar.add(
+            self.cmdsave,
+            self.cmdclose,
+            self.cmdquit
+        )
+    def closemenu(self, widget=None):
+        self.main_window.toolbar.clear()
+        self.main_window.toolbar.add(
+            self.cmdmenu
+        )
     def startagree(self): # Loads a window talking about the content of the game
         self.main_box = toga.Box( # Creates the empty content box
             direction=COLUMN
@@ -663,7 +696,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             pass
     def rungame(self, widget=None): # Function to fetch the current scene when called (either from a loaded save or a new game) and then loading the game dialogue window
         self.main_window.toolbar.add(
-            self.cmdsave
+            self.cmdmenu
         )
         self.currsce = gamelogic.requestscene()
         self.gamewindowdiag()
