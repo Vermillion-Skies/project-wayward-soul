@@ -1,5 +1,10 @@
 name: Build packages
 on:
+ workflow_dispatch:
+  inputs:
+   reason:
+    description: 'Reason for manual run'
+    required: false
  push:
    branches:
      - main  # update to match the default branch for your repo
