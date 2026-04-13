@@ -71,7 +71,11 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
             pass
         elif chapter == 1:
             if part == 0:
-                pass
+                if diagID == 14:
+                    pass
+                else:
+                    cansave = 1
+                    pass
             pass
         if cansave == 1:
             self.savewindow()
@@ -609,6 +613,8 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                         self.buttonbox.add(
                             self.dwb1
                         )
+                elif part == 1:
+                    pass
     def newgame(self, widget): # Function that sets all progress variables to default values before running rungame()
         global chapter
         global part
@@ -691,6 +697,8 @@ class chapter1: # Class containing logic and dialogue for chapter 1 of the game
         global part
         if part == 0:
             toret = chapter1.part0()
+        elif part == 1:
+            toret = chapter1.part1()
         return toret
     def part0(): # Function containing all dialogue info for part 0 of chapter 1
         if diagID == 0:
@@ -723,6 +731,10 @@ class chapter1: # Class containing logic and dialogue for chapter 1 of the game
             diag = ["SCENE", "But you don't have time to worry about that, as you feel yourself going further..."]
         elif diagID == 14:
             diag = ["SCENE", "Closer to the light.", "buttons", 1, "Next Part"]
+        return diag
+    def part1():
+        if diagID == 1:
+            pass
         return diag
 def main(): # Function called by __main__.py that starts running the app
     return WaywardSoul()
