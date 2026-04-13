@@ -36,25 +36,21 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         self.main_window = toga.MainWindow( # Creates the main window
             title=self.formal_name
         )
-        prggroup = Group( # Creates a group of functions for the titlebar
-            "Game",
+        self.cmdgroup = Group( # Creates a group of functions for the titlebar
+            "Menu",
             order=40
         )
         cmdsave = toga.Command( # Adds a save command to the function group
             self.savechk,
             text="Save Game",
             tooltip="Saves your game",
-            group=prggroup,
+            group=self.cmdgroup,
             section=0
         )
-        self.commands.add( # Adds commands to the previously defined group
-            cmdsave
-        )
+        self.commands.clear()
         self.startagree() # Loads the contents of the title screen window
         self.main_window.show() # Shows the window
     def startagree(self): # Loads a window talking about the content of the game
-        global chapter
-        chapter ="n" # Sets chapter to an empty value
         self.main_box = toga.Box( # Creates the empty content box
             direction=COLUMN
         )
@@ -153,7 +149,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         savewin.close()
     def loadtitlewindow(self, widget=None): # Main title window
         global chapter
-        chapter = "n" # Sets chapter to an empty value to prevent saving game on title screen
+        self.commands.clear()
         self.main_box = toga.Box( # Box to contain all contents defined in this function
             flex=0,
         )
