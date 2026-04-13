@@ -598,8 +598,17 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                         self.loadtitlewindow()
             elif chapter == 1: # Chapter 1 buttons
                 if part == 0: # Part 0 buttons
-                    if widget.text == "Return to Title": # Return to title button (Will be removed upon further development of the dialogue)
-                        self.loadtitlewindow()
+                    if widget.text == "Next Part": # Button to move to the next part
+                        diagID = 0
+                        part = 0
+                        hold = self.savegame()
+                        templist = gamelogic.requestscene()
+                        self.buttonbox.clear()
+                        self.winspeaker.text = templist[0]
+                        self.windiag.text = templist[1]
+                        self.buttonbox.add(
+                            self.dwb1
+                        )
     def newgame(self, widget): # Function that sets all progress variables to default values before running rungame()
         global chapter
         global part
@@ -685,9 +694,35 @@ class chapter1: # Class containing logic and dialogue for chapter 1 of the game
         return toret
     def part0(): # Function containing all dialogue info for part 0 of chapter 1
         if diagID == 0:
-            diag = ["Notice", "Chapter One of the game is currently being ported to this new engine. \nPlease be patient while it is worked on."]
+            diag = ["???", "You have spent quite some time here, haven't you?"]
         elif diagID == 1:
-            diag = ["Notice", "Please return to the title now.", "buttons", 1, "Return to Title"]
+            diag = ["You", "*...what?"]
+        elif diagID == 2:
+            diag = ["You", "*Time where...?"]
+        elif diagID == 3:
+            diag = ["You", "*My mind is hazy..."]
+        elif diagID == 4:
+            diag = ["???", "Worry not, my lost child. I am aware of what tied you to this fate."]
+        elif diagID == 5:
+            diag = ["???", "And I intend on freeing you from the Plane of Souls"]
+        elif diagID == 6:
+            diag = ["You", "*I can't open my mouth... do I even have one...?"]
+        elif diagID == 7:
+            diag = ["???", "You indeed do not. A soul does not have form."]
+        elif diagID == 8:
+            diag = ["???", "But you will not be a soul for much longer, I assure you."]
+        elif diagID == 9:
+            diag = ["SCENE", "As the voice says this, you feel a light shining upon you"]
+        elif diagID == 10:
+            diag = ["???", "The world has great plans for you, wandering one."]
+        elif diagID == 11:
+            diag = ["???", "Try not to dissappoint the Gods, they have a lot of faith in you."]
+        elif diagID == 12:
+            diag = ["SCENE", "The disembodied voice seems to disappear..."]
+        elif diagID == 13:
+            diag = ["SCENE", "But you don't have time to worry about that, as you feel yourself going further..."]
+        elif diagID == 14:
+            diag = ["SCENE", "Closer to the light.", "buttons", 1, "Next Part"]
         return diag
 def main(): # Function called by __main__.py that starts running the app
     return WaywardSoul()
