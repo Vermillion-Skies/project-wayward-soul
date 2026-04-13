@@ -76,6 +76,9 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
                 else:
                     cansave = 1
                     pass
+                pass
+            elif part == 1:
+                pass
             pass
         if cansave == 1:
             self.savewindow()
@@ -734,7 +737,20 @@ class chapter1: # Class containing logic and dialogue for chapter 1 of the game
         return diag
     def part1():
         if diagID == 1:
-            pass
+            diag = ["???", "...ey"]
+        elif diagID == 2:
+            diag = ["SCENE", "You faintly hear a voice as your consciousness returns"]
+        elif diagID == 3:
+            diag = ["???", "...hey, you okay?"]
+        elif diagID == 4:
+            diag = ["SCENE", "You slowly open your eyes..."]
+        elif diagID == 5:
+            diag = ["???", "There we go, you're alive after all! Was getting worried, you know"]
+        elif diagID == 6:
+            diag = ["SCENE", "In front of you is a strange individual with green hair."]
+        elif diagID == 7:
+            diag = ["You", "...where am I?"]
+        
         return diag
 def main(): # Function called by __main__.py that starts running the app
     return WaywardSoul()
