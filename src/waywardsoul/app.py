@@ -149,7 +149,7 @@ class WaywardSoul(toga.App): # Class with all window logic, file I/O procedures,
         savewin.close()
     def loadtitlewindow(self, widget=None): # Main title window
         global chapter
-        self.commands.clear()
+        self.main_window.toolbar.clear()
         self.main_box = toga.Box( # Box to contain all contents defined in this function
             flex=0,
         )
